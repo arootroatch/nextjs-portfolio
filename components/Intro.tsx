@@ -7,7 +7,6 @@ import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs"
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useActiveSectionContext } from "@/context/ActiveSectionContext";
-import clsx from "clsx";
 
 export default function Intro() {
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
@@ -30,7 +29,7 @@ export default function Intro() {
   
 
   return (
-    <motion.section className=" z-50 h-full mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] absolute top-0" style={{opacity}}>
+    <motion.section className="flex flex-col items-center z-50 h-full max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] absolute top-0 sm:top-[60%] sm:-translate-y-1/2" style={{opacity}}>
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div

@@ -14,7 +14,7 @@ export default function About() {
 
   return (
     <motion.section
-      className="mb-28 max-w-[50rem] text-center h-full w-full leading-8 sm:mb-40 scroll-mt-28 absolute top-0"
+      className="mb-28 mt-[450px] sm:mt-0 max-w-[50rem] text-center h-full w-full leading-8 sm:mb-40 scroll-mt-28 sm:absolute sm:top-[63%] sm:-translate-y-1/2"
       style={{opacity}}
       // animate={{ opacity: 1, y: 0 }}
     >
