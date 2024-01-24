@@ -7,6 +7,7 @@ import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs"
 import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useActiveSectionContext } from "@/context/ActiveSectionContext";
+import clsx from "clsx";
 
 export default function Intro() {
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
@@ -16,11 +17,15 @@ export default function Intro() {
     [0,500],
     [1,0]
   )
+  const height = useTransform(
+    scrollY,
+    [0,450,500],
+    ["auto","auto",0]
+  )
  
 
-
   return (
-    <motion.section className="h-full mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] absolute top-0" style={{opacity}}>
+    <motion.section className=" z-50 h-full mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] absolute top-0" style={{opacity}}>
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div
@@ -67,10 +72,11 @@ export default function Intro() {
         <span className="italic">engaging UIs</span>. My focus is{" "}
         <span className="underline">React (Next.js) with React-Redux</span>.
       </motion.h1>
-      <motion.div className="flex flex-col sm:flex-row justify-center items-center gap-2 px-4 text-lg font-medium"
+      <motion.div className="flex flex-col sm:flex-row justify-center items-center gap-2 px-4 text-lg font-medium overflow-hidden" 
         initial={{opacity: 0, y: 100}}
         animate={{opacity:1, y:0}}
         transition={{delay: 0.1}}
+        style={{height}}
       >
         <Link className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition" href="#contact" onClick={()=>{setActiveSection("Contact"), setTimeOfLastClick(Date.now())}}>Contact me here <BsArrowRight className="group-hover:translate-x-2 transition opacity-70"/></Link>
         <a href="/CV.pdf" download className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border-black/10 dark:bg-white/10">Download CV <HiDownload className="group-hover:translate-y-1 transition opacity-60 cursor-pointer"/></a>
