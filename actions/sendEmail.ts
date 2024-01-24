@@ -6,7 +6,7 @@ import ContactFormEmail from "@/email/ContactFormEmail";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const getErrorMessage = (error: unknown) => {
-  let message: string;
+  let message=" ";
   if (error instanceof Error) {
     message=String(error.message)
   } else if (error && typeof error === "object" && "message" in error) {
