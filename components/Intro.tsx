@@ -22,7 +22,12 @@ export default function Intro() {
     [0,450,500],
     ["auto","auto",0]
   )
- 
+  const overflowY = useTransform(
+    scrollY,
+    [0,499,500],
+    ["visible","visible","hidden"]
+  )
+  
 
   return (
     <motion.section className=" z-50 h-full mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] absolute top-0" style={{opacity}}>
@@ -72,16 +77,16 @@ export default function Intro() {
         <span className="italic">engaging UIs</span>. My focus is{" "}
         <span className="underline">React (Next.js) with React-Redux</span>.
       </motion.h1>
-      <motion.div className="flex flex-col sm:flex-row justify-center items-center gap-2 px-4 text-lg font-medium overflow-hidden" 
+      <motion.div className="flex flex-col sm:flex-row justify-center items-center gap-2 px-4 text-lg font-medium" 
         initial={{opacity: 0, y: 100}}
         animate={{opacity:1, y:0}}
         transition={{delay: 0.1}}
-        style={{height}}
+        style={{height, overflowY}}
       >
         <Link className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition" href="#contact" onClick={()=>{setActiveSection("Contact"), setTimeOfLastClick(Date.now())}}>Contact me here <BsArrowRight className="group-hover:translate-x-2 transition opacity-70"/></Link>
         <a href="/CV.pdf" download className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border-black/10 dark:bg-white/10">Download CV <HiDownload className="group-hover:translate-y-1 transition opacity-60 cursor-pointer"/></a>
         <a href="https://www.linkedin.com/in/alex-root-roatch-a2b25370/" target="blank" rel="nofollow noreferrer" className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border-black/10 hover:text-gray-950 focus:text-gray-950 dark:bg-white/10 dark:text-white/60"><BsLinkedin/></a>
-        <a href="https://github.com/arootroatch" target="blank" rel="nofollow noreferrer" className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.4rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition border-black/10 hover:text-gray-950 cursor-pointer focus:text-gray-950 dark:bg-white/10 dark:text-white/60"><FaGithubSquare /></a>
+        <a href="https://github.com/arootroatch" target="blank" rel="nofollow noreferrer" className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.4rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] max-w-[50px] max-h-[50px] active:scale-105 transition border-black/10 hover:text-gray-950 cursor-pointer focus:text-gray-950 dark:bg-white/10 dark:text-white/60"><FaGithubSquare /></a>
       </motion.div>
     </motion.section>
   );
