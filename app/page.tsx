@@ -9,16 +9,13 @@ import SectionSpan from "@/components/SectionSpan";
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center px-4">
+      <div className="-z-10 fixed top-0 left-0 w-full h-full bg-gradient-radial dark:to-[rgba(17,24,39)] dark:from-[#410537d7] from-[#ff8dec52] to-[rgba(249,250,251)]"></div>
       <div
         id="scroll-container"
-        className="w-full max-w-[50rem] h-[2200px] relative"
+        className="w-full max-w-[50rem] h-[2200px] relative "
       >
         <SectionSpan id="Home" className="absolute top-[200px] scroll-mt-96" />
         <SectionSpan id="About" className="absolute top-[68%] scroll-mt-96" />
-        <div className="-z-10 fixed w-full h-full">
-          <div className="bg-[#fbe2e3] absolute left-1/2 sm:left-auto sm:top-[-6rem] h-[28.25rem] w-1/2 rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]"></div>
-          <div className="bg-[#dbd7fb] absolute  top-[-1rem] sm:left-[-35rem] h-[28.25rem] w-1/2 rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div>
-        </div>
         <Intro />
         <About />
       </div>
