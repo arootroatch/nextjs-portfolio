@@ -21,7 +21,7 @@ export default function Intro() {
 
   return (
     <motion.section
-      className="flex flex-col items-center z-50 h-full max-w-[50rem] text-center sm:mb-0 fixed top-0 sm:top-[72%] sm:-translate-y-1/2"
+      className="flex flex-col items-center z-10 h-full max-w-[50rem] text-center sm:mb-0 fixed top-0 sm:top-[72%] sm:-translate-y-1/2"
       style={{ opacity }}
       id="intro"
     >

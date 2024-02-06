@@ -10,18 +10,14 @@ import toast from "react-hot-toast";
 export default function Contact() {
   const { ref } = useSectionInView("Contact");
   const { scrollY } = useScroll();
-  const opacity = useTransform(
-    scrollY,
-    [0,3900,4200],
-    [0,0,1]
-  )
-  
+  const opacity = useTransform(scrollY, [0, 3900, 4200], [0, 0, 1]);
+
   return (
     <motion.section
       ref={ref}
       id="contact"
-      className="mb-20 sm:mb-28 w-[min(100%, 38rem)] text-center scroll-mt-28"
-      style={{opacity}}
+      className="mb-20 z-20 sm:mb-28 w-[min(100%, 38rem)] text-center scroll-mt-28"
+      style={{ opacity }}
     >
       <SectionHeader>Contact Me</SectionHeader>
       <p className="text-gray-700 -mt-6 dark:text-white/80">
@@ -34,7 +30,7 @@ export default function Contact() {
 
       <form
         action={async (formData) => {
-          const { error } = await sendEmail(formData) || {};
+          const { error } = (await sendEmail(formData)) || {};
           if (error) {
             toast.error(error);
             return;
@@ -52,13 +48,13 @@ export default function Contact() {
           placeholder="Your email"
         />
         <textarea
-        name="message"
+          name="message"
           required
           maxLength={5000}
           className="h-52 my-3 rounded-lg  border border-black/10 p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
           placeholder="Your message"
         ></textarea>
-        <SubmitBtn/>
+        <SubmitBtn />
       </form>
     </motion.section>
   );
