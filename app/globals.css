@@ -5,6 +5,12 @@
 html {
   --line-color: #e5e7eb;
   overflow-x: none;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: none;
+}
+body{
+  -ms-scroll-chaining: none;
+      overscroll-behavior: none;
 }
 
 html.dark {
