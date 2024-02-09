@@ -7,14 +7,13 @@ export default function About() {
   const { scrollY } = useScroll();
   const opacity = useTransform(
     scrollY,
-    [0, 500, 1000, 1300, 1700],
+    [0, 300, 800, 1100, 1300],
     [0, 0, 1, 1, 0]
   );
   return (
     <motion.section
-      className="mb-28 mt-[450px] sm:mt-0 max-w-[50rem] text-center h-full w-full leading-8 sm:mb-40 sm:fixed sm:top-[74%] sm:-translate-y-1/2"
+      className="mb-28 mt-[800px] sm:pl-5 sm:pr-9 sm:mt-0 max-w-[50rem] text-center sm:h-full w-full leading-8 sm:mb-40 sm:fixed sm:top-[74%] sm:-translate-y-1/2"
       style={{ opacity }}
-      // animate={{ opacity: 1, y: 0 }}
     >
       <SectionHeader>About Me</SectionHeader>
       <p className="mb-3 max-w-[42rem] mx-auto">

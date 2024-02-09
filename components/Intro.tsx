@@ -11,7 +11,7 @@ import { useActiveSectionContext } from "@/context/ActiveSectionContext";
 export default function Intro() {
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const height = useTransform(scrollY, [0, 450, 500], ["auto", "auto", 0]);
   const overflowY = useTransform(
     scrollY,
@@ -21,7 +21,7 @@ export default function Intro() {
 
   return (
     <motion.section
-      className="flex flex-col items-center z-10 h-full max-w-[50rem] text-center sm:mb-0 fixed top-0 sm:top-[72%] sm:-translate-y-1/2"
+      className="flex flex-col items-center z-10 h-full max-w-[50rem] text-center sm:mb-0 fixed sm:top-[72%] sm:-translate-y-1/2"
       style={{ opacity }}
       id="intro"
     >
@@ -61,7 +61,7 @@ export default function Intro() {
         </div>
       </div>
       <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+        className="mb-5 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
@@ -96,22 +96,24 @@ export default function Intro() {
           Download CV{" "}
           <HiDownload className="group-hover:translate-y-1 transition opacity-60 cursor-pointer" />
         </a>
-        <a
-          href="https://www.linkedin.com/in/alex-root-roatch-a2b25370/"
-          target="blank"
-          rel="nofollow noreferrer"
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border-black/10 hover:text-gray-950 focus:text-gray-950 dark:bg-white/10 dark:text-white/60"
-        >
-          <BsLinkedin />
-        </a>
-        <a
-          href="https://github.com/arootroatch"
-          target="blank"
-          rel="nofollow noreferrer"
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.4rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] max-w-[50px] max-h-[50px] active:scale-105 transition border-black/10 hover:text-gray-950 cursor-pointer focus:text-gray-950 dark:bg-white/10 dark:text-white/60"
-        >
-          <FaGithubSquare />
-        </a>
+        <div className="flex flex-row">
+          <a
+            href="https://www.linkedin.com/in/alex-root-roatch-a2b25370/"
+            target="blank"
+            rel="nofollow noreferrer"
+            className="bg-white p-4 mr-2 text-gray-700 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border-black/10 hover:text-gray-950 focus:text-gray-950 dark:bg-white/10 dark:text-white/60"
+          >
+            <BsLinkedin />
+          </a>
+          <a
+            href="https://github.com/arootroatch"
+            target="blank"
+            rel="nofollow noreferrer"
+            className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.4rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] max-w-[50px] max-h-[50px] active:scale-105 transition border-black/10 hover:text-gray-950 cursor-pointer focus:text-gray-950 dark:bg-white/10 dark:text-white/60"
+          >
+            <FaGithubSquare />
+          </a>
+        </div>
       </motion.div>
     </motion.section>
   );
