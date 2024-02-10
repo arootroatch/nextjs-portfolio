@@ -7,40 +7,42 @@ export default function About() {
   const { scrollY } = useScroll();
   const opacity = useTransform(
     scrollY,
-    [0, 300, 800, 1100, 1300],
+    [0, 300, 800, 1300, 1400],
     [0, 0, 1, 1, 0]
   );
   return (
     <motion.section
-      className="mb-28 mt-[800px] sm:pl-5 sm:pr-9 sm:mt-0 max-w-[50rem] text-center sm:h-full w-full leading-8 sm:mb-40 sm:fixed sm:top-[74%] sm:-translate-y-1/2"
+      className="mb-28 mt-[800px] sm:pl-5 sm:pr-9 sm:mt-0 max-w-[50rem] text-center sm:h-full w-full leading-8 sm:mb-40 sm:fixed sm:top-[68%] sm:-translate-y-1/2"
       style={{ opacity }}
     >
       <SectionHeader>About Me</SectionHeader>
       <p className="mb-3 max-w-[42rem] mx-auto">
-        After graduating with a degree in{" "}
-        <span className="font-medium">Accounting</span>, I decided to pursue my
-        passion for programming. I enrolled in a coding bootcamp and learned{" "}
-        <span className="font-medium">full-stack web development</span>.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I <span className="underline">love</span> the
-        feeling of finally figuring out a solution to a problem. My core stack
-        is{" "}
-        <span className="font-medium">
-          React, Next.js, Node.js, and MongoDB
-        </span>
-        . I am also familiar with TypeScript and Prisma. I am always looking to
-        learn new technologies. I am currently looking for a{" "}
-        <span className="font-medium">full-time position</span> as a software
-        developer.
+        As a professional audio engineer, I’ve always loved technology and
+        problem solving. When the pandemic shut down my{" "}
+        <span className="italic">entire industry</span> for few months, I took
+        the opportunity to{" "}
+        <span className="font-bold tracking-widest">learn how to code.</span>{" "}
+        Since then, I’ve used my skills to build web pages and automation
+        workflows for my own business.{" "}
+        <span className="italic">I'm passionate about coding</span>{" "}because, like audio engineering, it’s a perfect three-way intersection of
+        <span className="font-bold tracking-widest">
+          {" "}
+          creativity, problem-solving, and technology.
+        </span>{" "}
+        I <span className="underline">love</span> writing code that creatively
+        solves a <span className="italic">real-world problem,</span> as well as
+        solving the logic puzzle of debugging my code. My core stack is{" "}
+        <span className="font-bold tracking-widest">
+          React, Next.js, Node.js, and MongoDB,
+        </span>{" "}
+        and I'm always looking to learn new things.
       </p>
-      <p className="max-w-[42rem] mx-auto">
-        <span className="italic">When I'm not coding</span>, I enjoy playing
-        video games, watching movies, and playing with my dog. I also enjoy{" "}
-        <span className="font-medium">learning new things</span>. I am currently
-        learning about{" "}
-        <span className="font-medium">history and philosophy</span>. I'm also
-        learning how to play the guitar.
-      </p>
+      <span className="italic">When I’m not coding,</span> you can find me
+      running sound at live shows or mentoring live audio students. I enjoy
+      playing classical guitar and reading books in both English and Spanish. My
+      wife and I enjoy playing board games and video games, traveling, and going
+      on adventures with our two dogs.
+      <p className="max-w-[42rem] mx-auto"></p>
     </motion.section>
   );
 }

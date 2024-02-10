@@ -2,9 +2,9 @@ import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
-import corpcommentImg from "@/public/corpcomment.png";
-import rmtdevImg from "@/public/rmtdev.png";
-import wordanalyticsImg from "@/public/wordanalytics.png";
+import giftExchange from "@/public/GiftExchange.png";
+import soundRoots from "@/public/Sound Roots Shorter.gif";
+import calculator from "@/public/Calculator.png";
 
 export const links = [
   {
@@ -62,25 +62,25 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    title: "CorpComment",
+    title: "Gift Exchange Generator",
     description:
-      "I worked as a full-stack developer on this startup project for 2 years. Users can give public feedback to companies.",
-    tags: ["React", "Next.js", "MongoDB", "Tailwind", "Prisma"],
-    imageUrl: corpcommentImg,
+      "An app I created to randomly pick names for gift exchanges. Includes Secret Santa mode with email sending, database lookup, and the ability to set exclusions.",
+    tags: ["Vanilla JS", "MongoDB", "PostMark", "Serverless"],
+    imageUrl: giftExchange,
   },
   {
-    title: "rmtDev",
+    title: "Sound Roots Productions",
     description:
-      "Job board for remote developer jobs. I was the front-end developer. It has features like filtering, sorting and pagination.",
-    tags: ["React", "TypeScript", "Next.js", "Tailwind", "Redux"],
-    imageUrl: rmtdevImg,
+      "Website for my production company. Includes engaging scrolling effects and a custom scrollbar that resembles an audio console fader.",
+    tags: ["Vanilla JS", "lax.js", "flickity", "Netlify", 'curator.io'],
+    imageUrl: soundRoots,
   },
   {
-    title: "Word Analytics",
+    title: "Calculator",
     description:
-      "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
-    tags: ["React", "Next.js", "SQL", "Tailwind", "Framer"],
-    imageUrl: wordanalyticsImg,
+      "A calculator built in React that uses Redux to control which components re-render.",
+    tags: ["React", "Redux", "SCSS"],
+    imageUrl: calculator,
   },
 ] as const;
 
@@ -97,11 +97,9 @@ export const skillsData = [
   "React",
   "Redux",
   "Next.js",
-  "Visual Basic",
+  "VBA",
   "Git",
-  "Github",
   "MongoDB",
   "GraphQL",
-  "Apollo",
   "Express",
 ] as const;
