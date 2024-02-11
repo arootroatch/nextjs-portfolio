@@ -28,13 +28,13 @@ const validateString = (value: unknown, maxLength: number) => {
 
 export const sendEmail = async (formData: FormData) => {
   const token = String(formData.get("token"));
-  console.log(token);
 
   // const params = {"h-captcha-response": token, secret: process.env.HCAPTCHA_SECRET
   const params = new URLSearchParams();
   params.append('h-captcha-response',token);
   params.append('secret', String(process.env.HCAPTCHA_SECRET));
-  
+  console.log(params);
+
   const response = await fetch("https://hcaptcha.com/siteverify", {
     method: "POST",
     body: params,
