@@ -54,7 +54,7 @@ export const experiencesData = [
     title: "Full-Stack Developer",
     location: "Nashville, TN",
     description:
-      "I upskilled to full-stack to be able to bring more features to the company's online presence. I earned the Front-End Frameworks and Backend Development certifications from freeCodeCamp, as well as completing an online full-stack Next.js class.",
+      "I upskilled to full-stack to be able to bring more features Sound Roots' online presence. I earned the Front-End Frameworks and Backend Development certifications from freeCodeCamp, as well as completing an online full-stack Next.js class.",
     icon: React.createElement(CgWorkAlt),
     date: "2023 - present",
   },
