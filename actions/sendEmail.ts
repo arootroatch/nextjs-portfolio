@@ -29,7 +29,6 @@ const validateString = (value: unknown, maxLength: number) => {
 export const sendEmail = async (formData: FormData) => {
   const token = String(formData.get("token"));
 
-  // const params = {"h-captcha-response": token, secret: process.env.HCAPTCHA_SECRET
   const params = new URLSearchParams();
   params.append('response',token);
   params.append('secret', String(process.env.HCAPTCHA_SECRET));
