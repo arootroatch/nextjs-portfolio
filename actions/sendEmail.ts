@@ -31,9 +31,8 @@ export const sendEmail = async (formData: FormData) => {
 
   // const params = {"h-captcha-response": token, secret: process.env.HCAPTCHA_SECRET
   const params = new URLSearchParams();
-  params.append('h-captcha-response',token);
+  params.append('response',token);
   params.append('secret', String(process.env.HCAPTCHA_SECRET));
-  console.log(params);
 
   const response = await fetch("https://hcaptcha.com/siteverify", {
     method: "POST",
@@ -51,7 +50,6 @@ export const sendEmail = async (formData: FormData) => {
   } else {
     const message = formData.get("message");
     const senderEmail = formData.get("senderEmail");
-    console.log(message, senderEmail);
 
     // simple server-side validation
     if (!validateString(senderEmail, 500)) {

@@ -9,7 +9,7 @@ import SubmitBtn from "./SubmitBtn";
 import toast from "react-hot-toast";
 
 export default function Contact() {
-  const [token, setToken] = useState<null | string>(null);
+  const [token, setToken] = useState<string>("");
   const captchaRef = useRef<HCaptcha>(null);
   const { ref } = useSectionInView("Contact");
   const { scrollY } = useScroll();
@@ -34,19 +34,19 @@ export default function Contact() {
       <form
         action={async (formData) => {
           if (!token) {
-            toast.error(`Please complete the captcha`);
-            return;
-          }
-          formData.append("token", token);
-          
-          const { error } = (await sendEmail(formData)) || {};
-          if (error) {
+              toast.error(`Please complete the captcha`);
+              return;
+            }
+            formData.append("token", token);
+            
+            const { error } = (await sendEmail(formData)) || {};
+            if (error) {
+              captchaRef.current?.resetCaptcha();
+              toast.error(error);
+              return;
+            }
+            toast.success("Email sent successfully!");
             captchaRef.current?.resetCaptcha();
-            toast.error(error);
-            return;
-          }
-          toast.success("Email sent successfully!");
-          captchaRef.current?.resetCaptcha();
         }}
         className="mt-10 flex flex-col dark:text-black"
       >
@@ -68,7 +68,6 @@ export default function Contact() {
         <HCaptcha
           sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}
           onVerify={(token) => setToken(token)}
-          // size="invisible"
           ref={captchaRef}
         />
         <SubmitBtn />
