@@ -21,13 +21,19 @@ export default function Intro() {
 
   return (
     <motion.section
-      className="flex flex-col items-center z-10 h-full max-w-[50rem] text-center sm:mb-0 fixed sm:top-[72%] sm:-translate-y-1/2"
+      className="flex flex-col items-center  z-10 h-full max-w-[50rem] text-center sm:mb-0 fixed sm:top-[87%] sm:-translate-y-1/2"
       style={{ opacity }}
       id="intro"
     >
+      <div
+        id="intro-background"
+        className=" absolute -top-[37%] w-screen h-[130vh] dark:bg-[radial-gradient(circle, #30012800 0%,#36012d83 55%,#300128bd 95%) bg-[radial-gradient(#30012800_0%,#36012d83_55%,#300128bd_95%)"
+        style={{ backgroundPositionY: "-200px" }}
+      ></div>
       <div className="flex items-center justify-center">
         <div className="relative">
-          <motion.div
+          {/* <motion.div
+            // className="w-1/4"
             initial={{ opacity: 0, scale: 1 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -36,16 +42,16 @@ export default function Intro() {
             }}
           >
             <Image
-              src="/WeddingSelfie.jpeg"
+              src="/portrait.jpg"
               alt="Alex Root-Roatch portrait"
-              width="192"
-              height="192"
+              width="400"
+              height="400"
               quality="95"
               priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+              className="h-64 w-72 rounded-full relative object-cover border-[0.1rem] border-white shadow-xl"
             />
-          </motion.div>
-          <motion.span
+          </motion.div> */}
+          {/* <motion.span
             className="text-4xl absolute bottom-0 right-0"
             initial={{ opacity: 0, scale: 1 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -57,22 +63,23 @@ export default function Intro() {
             }}
           >
             👋🏻
-          </motion.span>
+          </motion.span> */}
         </div>
+        <motion.h1
+          className="mb-5 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl relative bg-white dark:bg-transparent bg-opacity-50 backdrop-blur-xl rounded-lg"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          <span className="font-bold">Hello, I'm Alex.</span> I'm a{" "}
+          <span className="font-bold">full-stack developer</span> with{" "}
+          <span className="font-bold">4 years</span> of experience. I especially
+          love developing <span className="italic">engaging UIs</span>. My focus
+          is <span className="underline">React (Next.js) with React-Redux</span>
+          .
+        </motion.h1>
       </div>
-      <motion.h1
-        className="mb-5 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
-        <span className="font-bold">Hello, I'm Alex.</span> I'm a{" "}
-        <span className="font-bold">full-stack developer</span> with{" "}
-        <span className="font-bold">4 years</span> of experience. I especially
-        love developing <span className="italic">engaging UIs</span>. My focus
-        is <span className="underline">React (Next.js) with React-Redux</span>.
-      </motion.h1>
       <motion.div
-        className="flex flex-col sm:flex-row justify-center items-center gap-2 px-4 text-lg font-medium"
+        className="flex flex-col sm:flex-row justify-center items-center gap-2 px-4 text-lg font-medium relative"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
@@ -91,7 +98,7 @@ export default function Intro() {
         <a
           href="/CV.pdf"
           download
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border-black/10 dark:bg-white/10"
+          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border-black/10 dark:bg-white/30 dark:backdrop-blur-md"
         >
           Download CV{" "}
           <HiDownload className="group-hover:translate-y-1 transition opacity-60 cursor-pointer" />
@@ -101,7 +108,7 @@ export default function Intro() {
             href="https://www.linkedin.com/in/alex-root-roatch-a2b25370/"
             target="blank"
             rel="nofollow noreferrer"
-            className="bg-white p-4 mr-2 text-gray-700 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border-black/10 hover:text-gray-950 focus:text-gray-950 dark:bg-white/10 dark:text-white/60"
+            className="bg-white p-4 mr-2 text-gray-700 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border-black/10 hover:text-gray-950 focus:text-gray-950 dark:bg-white/30 dark:text-white/60 dark:backdrop-blur-md"
           >
             <BsLinkedin />
           </a>
@@ -109,7 +116,7 @@ export default function Intro() {
             href="https://github.com/arootroatch"
             target="blank"
             rel="nofollow noreferrer"
-            className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.4rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] max-w-[50px] max-h-[50px] active:scale-105 transition border-black/10 hover:text-gray-950 cursor-pointer focus:text-gray-950 dark:bg-white/10 dark:text-white/60"
+            className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.4rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] max-w-[50px] max-h-[50px] active:scale-105 transition border-black/10 hover:text-gray-950 cursor-pointer focus:text-gray-950 dark:bg-white/30 dark:text-white/60 dark:backdrop-blur-md"
           >
             <FaGithubSquare />
           </a>

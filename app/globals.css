@@ -11,10 +11,25 @@ html {
 body{
   -ms-scroll-chaining: none;
       overscroll-behavior: none;
+  /* background-image: url("/lookright.jpg"); */
+  background-image: url("/lookright.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top -140px left 15px;
+  
 }
 
 html.dark {
   --line-color: #ffffff30;
 }
+
+#intro-background{
+    background: radial-gradient(circle, #30012800 0%, #30012800 10%,rgba(255, 226, 255, 0.254) 35%, rgba(255, 226, 255, 0.395) 90%);
+}
+
+:is(.dark) #intro-background{
+  background:radial-gradient(circle, #30012800 0%,#36012d83 55%,#300128bd 95%);
+}
+
 
 

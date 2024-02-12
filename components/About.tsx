@@ -16,7 +16,7 @@ export default function About() {
       style={{ opacity }}
     >
       <SectionHeader>About Me</SectionHeader>
-      <p className="mb-3 max-w-[42rem] mx-auto">
+      <p className="mb-3 max-w-[42rem] mx-auto backdrop-blur-xl">
         As a professional audio engineer, I’ve always loved technology and
         problem solving. When the pandemic shut down my{" "}
         <span className="italic">entire industry</span> for few months, I took
@@ -24,7 +24,8 @@ export default function About() {
         <span className="font-bold tracking-widest">learn how to code.</span>{" "}
         Since then, I’ve used my skills to build web pages and automation
         workflows for my own business.{" "}
-        <span className="italic">I'm passionate about coding</span>{" "}because, like audio engineering, it’s a perfect three-way intersection of
+        <span className="italic">I'm passionate about coding</span> because,
+        like audio engineering, it’s a perfect three-way intersection of
         <span className="font-bold tracking-widest">
           {" "}
           creativity, problem-solving, and technology.
@@ -37,12 +38,13 @@ export default function About() {
         </span>{" "}
         and I'm always looking to learn new things.
       </p>
-      <span className="italic">When I’m not coding,</span> you can find me
-      running sound at live shows or mentoring live audio students. I enjoy
-      playing classical guitar and reading books in both English and Spanish. My
-      wife and I enjoy playing board games and video games, traveling, and going
-      on adventures with our two dogs.
-      <p className="max-w-[42rem] mx-auto"></p>
+      <p className="max-w-[42rem] mx-auto backdrop-blur-xl ">
+        <span className="italic">When I’m not coding,</span> you can find me
+        running sound at live shows or mentoring live audio students. I enjoy
+        playing classical guitar and reading books in both English and Spanish.
+        My wife and I enjoy playing board games and video games, traveling, and
+        going on adventures with our two dogs.
+      </p>
     </motion.section>
   );
 }
