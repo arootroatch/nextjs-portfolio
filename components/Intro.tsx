@@ -26,12 +26,12 @@ export default function Intro() {
     >
       <div
         id="intro-background"
-        className=" absolute -top-[37%] w-screen h-[130vh] dark:bg-[radial-gradient(circle, #30012800 0%,#36012d83 55%,#300128bd 95%) bg-[radial-gradient(#30012800_0%,#36012d83_55%,#300128bd_95%)"
+        className=" absolute -top-[37%] w-screen h-[130vh] dark:bg-[radial-gradient(circle, #30012800 0%,#36012d83 55%,#3001285d 95%) bg-[radial-gradient(#30012800_0%,#36012d83_55%,#300128bd_95%)"
         style={{ backgroundPositionY: "-200px" }}
       ></div>
       <div className="flex items-center justify-center">
         <motion.h1
-          className="mb-5 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl relative bg-white dark:bg-transparent bg-opacity-50 backdrop-blur-xl rounded-lg"
+          className="mb-5 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl relative bg-white dark:bg-[#491c3d56] bg-opacity-60 rounded-lg"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >

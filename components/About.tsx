@@ -16,7 +16,7 @@ export default function About() {
       style={{ opacity }}
     >
       <SectionHeader>About Me</SectionHeader>
-      <p className="mb-3 max-w-[42rem] mx-auto backdrop-blur-xl">
+      <p className="mb-3 max-w-[42rem] mx-auto bg-[rgba(217,199,214,0.34)] dark:bg-transparent rounded-lg">
         As a professional audio engineer, I’ve always loved technology and
         problem solving. When the pandemic shut down my{" "}
         <span className="italic">entire industry</span> for few months, I took
@@ -38,7 +38,7 @@ export default function About() {
         </span>{" "}
         and I'm always looking to learn new things.
       </p>
-      <p className="max-w-[42rem] mx-auto backdrop-blur-xl ">
+      <p className="max-w-[42rem] mx-auto  bg-[rgba(217,199,214,0.34)] dark:bg-transparent rounded-lg">
         <span className="italic">When I’m not coding,</span> you can find me
         running sound at live shows or mentoring live audio students. I enjoy
         playing classical guitar and reading books in both English and Spanish.
