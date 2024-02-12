@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
@@ -31,40 +30,6 @@ export default function Intro() {
         style={{ backgroundPositionY: "-200px" }}
       ></div>
       <div className="flex items-center justify-center">
-        <div className="relative">
-          {/* <motion.div
-            // className="w-1/4"
-            initial={{ opacity: 0, scale: 1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "tween",
-              duration: 0.2,
-            }}
-          >
-            <Image
-              src="/portrait.jpg"
-              alt="Alex Root-Roatch portrait"
-              width="400"
-              height="400"
-              quality="95"
-              priority={true}
-              className="h-64 w-72 rounded-full relative object-cover border-[0.1rem] border-white shadow-xl"
-            />
-          </motion.div> */}
-          {/* <motion.span
-            className="text-4xl absolute bottom-0 right-0"
-            initial={{ opacity: 0, scale: 1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 125,
-              delay: 0.1,
-              duration: 0.7,
-            }}
-          >
-            👋🏻
-          </motion.span> */}
-        </div>
         <motion.h1
           className="mb-5 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl relative bg-white dark:bg-transparent bg-opacity-50 backdrop-blur-xl rounded-lg"
           initial={{ opacity: 0, y: 100 }}

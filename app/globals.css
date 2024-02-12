@@ -11,7 +11,6 @@ html {
 body{
   -ms-scroll-chaining: none;
       overscroll-behavior: none;
-  /* background-image: url("/lookright.jpg"); */
   background-image: url("/lookright.jpg");
   background-attachment: fixed;
   background-size: cover;
