@@ -11,11 +11,13 @@ html {
 body{
   -ms-scroll-chaining: none;
       overscroll-behavior: none;
+}
+    
+#bg-pic{
   background-image: url("/lookright.jpg");
   background-attachment: fixed;
   background-position: top 45% center;
   background-size: auto 150%;
-  /* background-repeat: no-repeat; */
 }
 
 html.dark {
