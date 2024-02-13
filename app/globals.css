@@ -13,9 +13,9 @@ body{
       overscroll-behavior: none;
   background-image: url("/lookright.jpg");
   background-attachment: fixed;
-  background-size: cover;
-  background-position: top -140px left 15px;
-  
+  background-position: top 45% center;
+  background-size: auto 150%;
+  /* background-repeat: no-repeat; */
 }
 
 html.dark {
@@ -30,5 +30,13 @@ html.dark {
   background:radial-gradient(circle, #30012800 0%,#36012d83 55%,#300128bd 95%);
 }
 
+@media (min-width: 832px){
+  #intro-background{
+    left: auto;  }
+}
 
-
+@media (max-height:814px){
+  #intro{
+    transform: translateY(10vh);
+  }
+}

@@ -25,7 +25,7 @@ export default function Projects() {
           href="https://github.com/arootroatch"
           target="blank"
           rel="nofollow noreferrer"
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border-black/10 dark:bg-white/10"
+          className="group bg-white/70 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border-black/10 dark:bg-white/10"
         >
           See More on GitHub{" "}
           <FaGithubSquare className="text-xl group-hover:scale-110  transition opacity-60" />
