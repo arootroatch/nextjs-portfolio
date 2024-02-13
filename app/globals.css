@@ -13,13 +13,6 @@ body{
       overscroll-behavior: none;
 }
     
-/* #bg-pic{
-  background-image: url("/lookright.jpg");
-  background-attachment: fixed;
-  background-position: top 45% center;
-  background-size: auto 150%;
-} */
-
 html.dark {
   --line-color: #ffffff30;
 }
@@ -37,8 +30,16 @@ html.dark {
     left: auto;  }
 }
 
-@media (max-height:814px) and (max-width: 400px){
+@media (max-height:568px) and (max-width: 400px){
   #intro{
-    transform: translateY(10vh);
+    transform: translateY(0)
+  }
+  #intro h1{
+    font-size: larger;
+  }
+}
+@media (max-height:667px) and (max-width: 475px){
+  #intro{
+    transform: translateY(8vh)
   }
 }
