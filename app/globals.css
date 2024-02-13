@@ -12,6 +12,18 @@ body{
   -ms-scroll-chaining: none;
       overscroll-behavior: none;
 }
+
+#bg-pic{
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  background-image: url("/lookright.jpg");
+  background-size: auto 150%;
+  background-position: top 45% center;
+  
+}
     
 html.dark {
   --line-color: #ffffff30;
