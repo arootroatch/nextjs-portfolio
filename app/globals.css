@@ -13,12 +13,12 @@ body{
       overscroll-behavior: none;
 }
     
-#bg-pic{
+/* #bg-pic{
   background-image: url("/lookright.jpg");
   background-attachment: fixed;
   background-position: top 45% center;
   background-size: auto 150%;
-}
+} */
 
 html.dark {
   --line-color: #ffffff30;
