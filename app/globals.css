@@ -35,7 +35,7 @@ html.dark {
     left: auto;  }
 }
 
-@media (max-height:814px){
+@media (max-height:814px) and (max-width: 400px){
   #intro{
     transform: translateY(10vh);
   }
