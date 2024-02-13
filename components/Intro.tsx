@@ -63,7 +63,7 @@ export default function Intro() {
         <a
           href="/CV.pdf"
           download
-          className="group bg-white/70 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border-black/10 dark:bg-white/30 dark:backdrop-blur-md"
+          className="group bg-white/70 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border-black/10 dark:bg-gray-400/50 "
         >
           Download CV{" "}
           <HiDownload className="group-hover:translate-y-1 transition opacity-60 cursor-pointer" />
@@ -73,7 +73,7 @@ export default function Intro() {
             href="https://www.linkedin.com/in/alex-root-roatch-a2b25370/"
             target="blank"
             rel="nofollow noreferrer"
-            className="bg-white/70 p-4 mr-2 text-gray-700 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border-black/10 hover:text-gray-950 focus:text-gray-950 dark:bg-white/30 dark:text-white/60 dark:backdrop-blur-md"
+            className="bg-white/70 p-4 mr-2 text-gray-700 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer border-black/10 hover:text-gray-950 focus:text-gray-950 dark:bg-gray-400/50 dark:text-white/60 "
           >
             <BsLinkedin />
           </a>
@@ -81,7 +81,7 @@ export default function Intro() {
             href="https://github.com/arootroatch"
             target="blank"
             rel="nofollow noreferrer"
-            className="bg-white/70 p-4 text-gray-700 flex items-center gap-2 text-[1.4rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] max-w-[50px] max-h-[50px] active:scale-105 transition border-black/10 hover:text-gray-950 cursor-pointer focus:text-gray-950 dark:bg-white/30 dark:text-white/60 dark:backdrop-blur-md"
+            className="bg-white/70 p-4 text-gray-700 flex items-center gap-2 text-[1.4rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] max-w-[50px] max-h-[50px] active:scale-105 transition border-black/10 hover:text-gray-950 cursor-pointer focus:text-gray-950 dark:bg-gray-400/50  dark:text-white/60 "
           >
             <FaGithubSquare />
           </a>
