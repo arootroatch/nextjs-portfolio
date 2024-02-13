@@ -10,7 +10,7 @@ export default function BackgroundImage() {
         priority={true}
         quality={75}
         fill={true}
-        objectFit="cover"
+        style={{objectFit:"cover"}}
       />
     </div>
   );
