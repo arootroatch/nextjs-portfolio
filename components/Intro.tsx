@@ -61,7 +61,7 @@ export default function Intro() {
           <BsArrowRight className='group-hover:translate-x-2 transition opacity-70' />
         </Link>
         <a
-          href='/Root-RoatchWebDevResume.pdf'
+          href='/Root-Roatch-WebDevResume.pdf'
           target="blank"
           className='group bg-white/70 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border-black/10 dark:bg-gray-400/50 '
         >
