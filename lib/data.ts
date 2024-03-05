@@ -66,20 +66,22 @@ export const projectsData = [
       "An app I created to randomly pick names for gift exchanges. Includes Secret Santa mode with email sending, database lookup, and the ability to set exclusions.",
     tags: ["Vanilla JS", "MongoDB", "PostMark", "Serverless"],
     imageUrl: giftExchange,
+    url: "https://giftexchangegenerator.netlify.app/",
   },
   {
     title: "Sound Roots Productions",
     description:
       "Website for my production company. Includes engaging scrolling effects and a custom scrollbar that resembles an audio console fader.",
-    tags: ["Vanilla JS", "lax.js", "flickity", "Netlify", 'curator.io'],
+    tags: ["Vanilla JS", "lax.js", "flickity", "Netlify", "curator.io"],
     imageUrl: soundRoots,
+    url: "https://www.soundrootsproductions.com/",
   },
   {
     title: "Unwinnable Tic-Tac-Toe",
-    description:
-      "Play against the computer... and lose! ",
+    description: "Play against the computer... and lose! ",
     tags: ["HTML", "CSS", "Vanilla JS"],
     imageUrl: ticTacToe,
+    url: "https://unwinnable-tic-tac-toe.netlify.app/",
   },
 ] as const;
 
