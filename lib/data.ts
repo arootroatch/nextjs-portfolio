@@ -3,7 +3,7 @@ import { CgWorkAlt } from "react-icons/cg";
 import { LuGraduationCap } from "react-icons/lu";
 import giftExchange from "@/public/GiftExchange.png";
 import soundRoots from "@/public/Sound Roots Shorter.gif";
-import ticTacToe from "@/public/tic-tac-toe.png";
+import ticTacToe from "@/public/ticTacToe.png";
 
 export const links = [
   {
