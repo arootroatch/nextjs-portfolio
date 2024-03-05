@@ -1,10 +1,9 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import giftExchange from "@/public/GiftExchange.png";
 import soundRoots from "@/public/Sound Roots Shorter.gif";
-import calculator from "@/public/Calculator.png";
+import ticTacToe from "@/public/tic-tac-toe.png";
 
 export const links = [
   {
@@ -76,11 +75,11 @@ export const projectsData = [
     imageUrl: soundRoots,
   },
   {
-    title: "Calculator",
+    title: "Unwinnable Tic-Tac-Toe",
     description:
-      "A calculator built in React that uses Redux to control which components re-render.",
-    tags: ["React", "Redux", "SCSS"],
-    imageUrl: calculator,
+      "Play against the computer... and lose! ",
+    tags: ["HTML", "CSS", "Vanilla JS"],
+    imageUrl: ticTacToe,
   },
 ] as const;
 
