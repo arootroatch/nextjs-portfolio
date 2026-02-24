@@ -20,13 +20,13 @@ export default function Intro() {
 
   return (
     <motion.section
-      className='flex flex-col items-center z-10 h-full max-w-[50rem] text-center sm:mb-0 fixed sm:top-[87%] sm:-translate-y-1/2 translate-y-[20vh]'
+      className='flex flex-col items-center z-10 h-full max-w-[50rem] text-center sm:mb-0 fixed sm:top-[87%] sm:-translate-y-1/2 translate-y-[20vh] pointer-events-none'
       style={{ opacity }}
       id='intro'
     >
       <div
         id='intro-background'
-        className=' absolute -top-[45%] sm:-top-[37%] -left-4 w-screen h-[130vh] dark:bg-[radial-gradient(circle, #30012800 0%,#36012d83 55%,#3001285d 95%) bg-[radial-gradient(#30012800_0%,#36012d83_55%,#300128bd_95%)'
+        className=' absolute -top-[45%] sm:-top-[37%] -left-4 w-screen h-[130vh] pointer-events-none dark:bg-[radial-gradient(circle, #30012800 0%,#36012d83 55%,#3001285d 95%) bg-[radial-gradient(#30012800_0%,#36012d83_55%,#300128bd_95%)'
         style={{ backgroundPositionY: "-200px" }}
       ></div>
       <div className='flex items-center justify-center'>
@@ -44,7 +44,7 @@ export default function Intro() {
         </motion.h1>
       </div>
       <motion.div
-        className='flex flex-col sm:flex-row justify-center items-center gap-2 px-4 text-lg font-medium relative'
+        className='flex flex-col sm:flex-row justify-center items-center gap-2 px-4 text-lg font-medium relative pointer-events-auto'
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}

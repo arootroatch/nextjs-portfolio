@@ -27,6 +27,10 @@ export const links = [
     hash: "#experience",
   },
   {
+    name: "Blog",
+    hash: "#blog",
+  },
+  {
     name: "Contact",
     hash: "#contact",
   },
@@ -82,6 +86,17 @@ export const projectsData = [
     tags: ["HTML", "CSS", "Vanilla JS"],
     imageUrl: ticTacToe,
     url: "https://unwinnable-tic-tac-toe.netlify.app/",
+  },
+] as const;
+
+export const blogPostsData = [
+  {
+    title: "Example Blog Post",
+    description:
+      "A brief description of this blog post and what it covers.",
+    date: "2024-01-15",
+    tags: ["JavaScript", "React"],
+    url: "https://arootroatch-blog.vercel.app/",
   },
 ] as const;
 
