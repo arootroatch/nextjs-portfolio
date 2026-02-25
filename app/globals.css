@@ -30,28 +30,16 @@ html.dark {
 }
 
 #intro-background{
-    background: radial-gradient(circle, #30012800 0%, #30012800 10%,rgba(255, 226, 255, 0.254) 35%, rgba(255, 226, 255, 0.395) 90%);
+    background: radial-gradient(circle at 50% 35%, #30012800 0%, #30012800 10%,rgba(255, 226, 255, 0.254) 35%, rgba(255, 226, 255, 0.395) 90%);
 }
 
 :is(.dark) #intro-background{
-  background:radial-gradient(circle, #30012800 0%,#36012d83 55%,#300128bd 95%);
+  background:radial-gradient(circle at 50% 35%, #30012800 0%,#36012d83 55%,#300128bd 95%);
 }
 
-@media (min-width: 832px){
-  #intro-background{
-    left: auto;  }
-}
 
 @media (max-height:568px) and (max-width: 400px){
-  #intro{
-    transform: translateY(0)
-  }
   #intro h1{
     font-size: larger;
-  }
-}
-@media (max-height:667px) and (max-width: 475px){
-  #intro{
-    transform: translateY(8vh)
   }
 }

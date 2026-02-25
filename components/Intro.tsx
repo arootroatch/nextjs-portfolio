@@ -1,5 +1,3 @@
-"use client";
-
 import {
   motion,
   useTransform,
@@ -46,11 +44,6 @@ export default function Intro({
 
   const content = (
     <>
-      <div
-        id="intro-background"
-        className="absolute -top-[45%] sm:-top-[37%] -left-4 w-screen h-[130vh] pointer-events-none dark:bg-[radial-gradient(circle, #30012800 0%,#36012d83 55%,#3001285d 95%) bg-[radial-gradient(#30012800_0%,#36012d83_55%,#300128bd_95%)"
-        style={{ backgroundPositionY: "-200px" }}
-      ></div>
       <div className="flex items-center justify-center">
         <motion.h1
           className="mb-5 mt-2 mr-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl relative bg-white dark:bg-[#491c3d56] bg-opacity-60 rounded-lg"
@@ -80,7 +73,8 @@ export default function Intro({
           className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
           href="#contact"
           onClick={() => {
-            setActiveSection("Contact"), setTimeOfLastClick(Date.now());
+            setActiveSection("Contact");
+            setTimeOfLastClick(Date.now());
           }}
         >
           Contact me here{" "}
@@ -120,7 +114,7 @@ export default function Intro({
   if (scrollYProgress) {
     return (
       <motion.section
-        className="flex flex-col items-center z-10 h-full max-w-[50rem] text-center absolute top-[87%] -translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none"
+        className="flex flex-col items-center z-10 h-full w-full max-w-[50rem] text-center absolute top-[87%] -translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none"
         style={{ opacity: desktopOpacity }}
         id="intro"
       >
@@ -132,7 +126,7 @@ export default function Intro({
   // Mobile: normal flow, no scroll animations
   return (
     <section
-      className="flex flex-col items-center z-10 h-full max-w-[50rem] text-center translate-y-[20vh] pointer-events-none"
+      className="relative flex flex-col items-center justify-center w-full min-h-screen text-center"
       id="intro"
     >
       {content}

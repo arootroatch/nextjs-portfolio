@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -52,7 +51,7 @@ export default function About({
   if (scrollYProgress) {
     return (
       <motion.section
-        className="sm:pl-5 sm:pr-9 max-w-[50rem] text-center h-full w-full leading-8 absolute top-[68%] -translate-y-1/2 left-1/2 -translate-x-1/2"
+        className="sm:pl-5 sm:pr-9 max-w-[50rem] text-center h-full w-full leading-8 absolute top-[68%] -translate-y-1/2 left-1/2 -translate-x-1/2 px-4"
         style={{ opacity: desktopOpacity }}
       >
         <SectionHeader>About Me</SectionHeader>
@@ -63,7 +62,7 @@ export default function About({
 
   // Mobile: normal flow, no scroll animations
   return (
-    <section className="mb-28 mt-[800px] max-w-[50rem] text-center w-full leading-8">
+    <section className="mb-28 max-w-[50rem] text-center w-full leading-8 px-4">
       <SectionHeader>About Me</SectionHeader>
       {paragraphs}
     </section>

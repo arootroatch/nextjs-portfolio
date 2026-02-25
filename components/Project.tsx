@@ -13,7 +13,7 @@ export default function Project({
   url,
 }: ProjectProps) {
   return (
-    <section className="group flex-shrink-0 w-[42rem] bg-gray-100/50 border border-black/5 overflow-hidden sm:pr-8 relative sm:h-[20rem] sm:group-even:pl-8 hover:bg-white/65 transition rounded-lg dark:bg-white/10 dark:hover:bg-white/20 dark:text-white">
+    <section className="group flex-shrink-0 w-full sm:w-[42rem] bg-gray-100/50 border border-black/5 overflow-hidden sm:pr-8 relative sm:h-[20rem] sm:group-even:pl-8 hover:bg-white/65 transition rounded-lg dark:bg-white/10 dark:hover:bg-white/20 dark:text-white">
       <Link href={url} target="_blank" rel="nofollow noreferrer">
         <div className="sm:group-even:ml-[18rem] py-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full">
           <h3 className="text-2xl font-semibold">{title}</h3>
