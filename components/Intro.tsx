@@ -2,10 +2,20 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { BsArrowRight, BsGithub, BsLinkedin } from "react-icons/bs";
+import ReactMarkdown, { Components } from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import { BsArrowRight, BsLinkedin } from "react-icons/bs";
 import { PiArrowSquareOutLight } from "react-icons/pi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useActiveSectionContext } from "@/context/ActiveSectionContext";
+import { introData } from "@/lib/data";
+
+const markdownComponents: Components = {
+  p: ({ children }) => <>{children}</>,
+  em: ({ children }) => <span className="italic">{children}</span>,
+  strong: ({ children }) => <span className="font-bold">{children}</span>,
+  u: ({ children }) => <span className="underline">{children}</span>,
+};
 
 export default function Intro() {
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
@@ -35,12 +45,12 @@ export default function Intro() {
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <span className='font-bold'>Hello, I'm Alex.</span> I'm a{" "}
-          <span className='font-bold'>full-stack developer</span> with{" "}
-          <span className='font-bold'>4 years</span> of experience. I especially
-          love developing <span className='italic'>engaging UIs</span>. My focus
-          is <span className='underline'>React (Next.js) with React-Redux</span>
-          .
+          <ReactMarkdown
+            rehypePlugins={[rehypeRaw]}
+            components={markdownComponents}
+          >
+            {introData}
+          </ReactMarkdown>
         </motion.h1>
       </div>
       <motion.div
