@@ -4,7 +4,7 @@
 
 html {
   --line-color: #e5e7eb;
-  overflow-x: none;
+  overflow-x: hidden;
   -ms-scroll-chaining: none;
       overscroll-behavior: none;
 }
