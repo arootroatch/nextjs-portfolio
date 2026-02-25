@@ -6,7 +6,13 @@ import { projectsData } from "@/lib/data";
 import Project from "./Project";
 import { useSectionInView } from "@/lib/hooks";
 import { FaGithubSquare } from "react-icons/fa";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  MotionValue,
+  motionValue,
+} from "framer-motion";
 
 const CARD_WIDTH = 672; // 42rem = 672px
 const CARD_GAP = 48; // gap-12 = 3rem = 48px
@@ -42,25 +48,43 @@ function CarouselCard({
   );
 }
 
-export default function Projects() {
-  const { ref: inViewRef } = useSectionInView("Projects", 0.2);
-  const spacerRef = useRef<HTMLDivElement>(null);
+const STATIC_ZERO = motionValue(0);
 
-  const { scrollY } = useScroll();
-  const { scrollYProgress } = useScroll({
+export default function Projects({
+  scrollYProgress,
+}: {
+  scrollYProgress?: MotionValue<number>;
+}) {
+  // Mobile sentinel for nav highlighting
+  const { ref: inViewRef } = useSectionInView("Projects", 0.2);
+
+  // Standalone carousel scroll (used when no parent scrollYProgress provided)
+  const spacerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: localProgress } = useScroll({
     target: spacerRef,
     offset: ["start start", "end end"],
   });
 
-  // Fade in after About section fades out (About fades at scrollY 1300-1400)
-  const sectionOpacity = useTransform(scrollY, [1400, 1600], [0, 1]);
+  const progress = scrollYProgress ?? STATIC_ZERO;
 
-  // Remap scroll so cards dwell at first/last positions
+  // Desktop: section opacity fades in from parent progress
+  const sectionOpacity = useTransform(
+    progress,
+    [0, 0.385, 0.44],
+    [0, 0, 1]
+  );
+
+  // Desktop: remap parent progress [0.44, 1.0] → [0, 1] for carousel
+  const carouselRaw = useTransform(progress, [0.44, 1.0], [0, 1], {
+    clamp: true,
+  });
+
+  // Apply pad fraction dwell to carousel progress
   const innerProgress = useTransform(
-    scrollYProgress,
+    scrollYProgress ? carouselRaw : localProgress,
     [PAD_FRACTION, 1 - PAD_FRACTION],
     [0, 1],
-    { clamp: true },
+    { clamp: true }
   );
 
   const x = useTransform(innerProgress, [0, 1], [0, -MAX_TRANSLATE_X]);
@@ -80,12 +104,10 @@ export default function Projects() {
   );
 
   return (
-    <section id="projects" className="scroll-mt-28">
-      {/* Sentinel for nav highlighting — always rendered */}
-      <span ref={inViewRef} />
-
+    <>
       {/* Mobile: vertical stack */}
-      <div className="sm:hidden mb-28">
+      <section id="projects" className="sm:hidden scroll-mt-28 mb-28">
+        <span ref={inViewRef} />
         <SectionHeader>Some of My Projects</SectionHeader>
         <div className="flex flex-col items-center gap-4">
           {projectsData.map((project, index) => (
@@ -95,42 +117,37 @@ export default function Projects() {
           ))}
         </div>
         {githubButton}
-      </div>
+      </section>
 
-      {/* Desktop: scroll-linked horizontal carousel */}
-      <div className="hidden sm:block sm:relative sm:-top-[100vh] sm:-mb-[100vh]">
-        <div
-          ref={spacerRef}
-          style={{ height: `calc(100vh + ${TOTAL_SCROLL_EXTRA}px)` }}
+      {/* Desktop: scroll-linked horizontal carousel within HeroSection's sticky wrapper */}
+      {scrollYProgress && (
+        <motion.div
+          className="hidden sm:flex flex-col items-center justify-center h-full pt-20 absolute inset-0"
+          style={{ opacity: sectionOpacity }}
         >
-          <motion.div
-            className="sticky top-0 h-screen flex flex-col items-center justify-center pt-20"
-            style={{ opacity: sectionOpacity }}
-          >
-            <SectionHeader>Some of My Projects</SectionHeader>
-            <div className="relative w-full sm:h-[20rem]">
-              <motion.div
-                className="flex gap-12 absolute"
-                style={{
-                  left: `calc(50% - ${CARD_WIDTH / 2}px)`,
-                  x,
-                }}
-              >
-                {projectsData.map((project, index) => (
-                  <CarouselCard
-                    key={index}
-                    index={index}
-                    scrollYProgress={innerProgress}
-                  >
-                    <Project {...project} />
-                  </CarouselCard>
-                ))}
-              </motion.div>
-            </div>
-            {githubButton}
-          </motion.div>
-        </div>
-      </div>
-    </section>
+          <SectionHeader>Some of My Projects</SectionHeader>
+          <div className="relative w-full sm:h-[20rem]">
+            <motion.div
+              className="flex gap-12 absolute"
+              style={{
+                left: `calc(50% - ${CARD_WIDTH / 2}px)`,
+                x,
+              }}
+            >
+              {projectsData.map((project, index) => (
+                <CarouselCard
+                  key={index}
+                  index={index}
+                  scrollYProgress={innerProgress}
+                >
+                  <Project {...project} />
+                </CarouselCard>
+              ))}
+            </motion.div>
+          </div>
+          {githubButton}
+        </motion.div>
+      )}
+    </>
   );
 }
