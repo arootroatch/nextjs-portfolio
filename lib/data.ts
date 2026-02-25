@@ -1,6 +1,6 @@
 import React from "react";
-import { CgWorkAlt } from "react-icons/cg";
-import { LuGraduationCap } from "react-icons/lu";
+import {CgWorkAlt} from "react-icons/cg";
+import {LuGraduationCap} from "react-icons/lu";
 import giftExchange from "@/public/GiftExchange.png";
 import soundRoots from "@/public/Sound Roots Shorter.gif";
 import ticTacToe from "@/public/ticTacToe.png";
@@ -91,31 +91,60 @@ export const projectsData = [
 
 export const blogPostsData = [
   {
-    title: "Example Blog Post",
+    title: "Introducing ReMemory: The Solution to Your Re-rendering Woes",
     description:
-      "A brief description of this blog post and what it covers.",
-    date: "2024-01-15",
-    tags: ["JavaScript", "React"],
-    url: "https://arootroatch-blog.vercel.app/",
+      "To solve performance problems in our ClojureScript Reagent front ends, Connor Kilgore and I wrote the ReMemory " +
+      "implementation of the C3Kit Bucket database API. This blog details how the built-in state management vastly " +
+      "improves front end performance and simplifies front end code, as well as how to use it in your applications.",
+    date: "2026-01-30",
+    tags: ["ClojureScript", "Reagent", "React", "Clean Coders"],
+    url: "https://cleancoders.com/blog/2026-01-30-introducing-rememory-the-solution-to-your-re-rendering-woes",
+  },
+  {
+    title: "Goodbye, Reagent Class Components! Using Reagent's `with-let` Macro",
+    description:
+      "A guide for modernizing ClojureScript Reagent components to be written in a functional style rather than " +
+      "resorting to antiquated class component lifecycle hooks. Covers with-let, after-render, and useEffect interop." +
+      " Includes React function component examples for comparison.",
+    date: "2025-02-01",
+    tags: ["ClojureScript", "Reagent", "React", "Clean Coders"],
+    url: "https://cleancoders.com/blog/2025-02-01-goodbye-reagent-class-components-using-reagents-with-let-macro",
+  },
+  {
+    title: "Test-Driven ClojureScript: Using Scaffold to Add a Frontend to Your Application",
+    description:
+      "A guide for using C3Kit Scaffold, C3Kit Wire, and Speclj to create fully Test-Driven, Behavior-Driven front " +
+      "end applications in ClojureScript, using Reagent for application code and Garden for CSS styling.",
+    date: "2024-11-18",
+    tags: ["ClojureScript", "Reagent", "TDD", "BDD", "Clean Coders"],
+    url: "https://cleancoders.com/blog/2024-11-18-test-driven-clojurescript-using-scaffold-to-add-a-frontend-to-your-application",
   },
 ] as const;
 
 export const skillsData = [
-  "HTML",
-  "CSS",
-  "SCSS",
-  "Bootstrap",
-  "Tailwind",
-  "Styled Components",
-  "Framer Motion",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Redux",
-  "Next.js",
-  "VBA",
-  "Git",
-  "MongoDB",
-  "GraphQL",
+  "Agentic Development",
+  "AI Integration",
+  "AWS",
+  "CI/CD",
+  "Clojure",
+  "ClojureScript",
+  "Datomic",
+  "Docker",
   "Express",
+  "Framer Motion",
+  "Git",
+  "GraphQL",
+  "JavaScript",
+  "Kubernetes",
+  "MongoDB",
+  "Next.js",
+  "PostgreSQL",
+  "Pub/Sub",
+  "Python",
+  "React",
+  "Redis",
+  "Redux",
+  "Ruby",
+  "TypeScript",
+  "VBA",
 ] as const;
