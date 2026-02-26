@@ -72,6 +72,11 @@ export default function Projects({
     [0, 0, 1]
   );
 
+  // Disable clicks when section is invisible
+  const pointerEvents = useTransform(sectionOpacity, (o) =>
+    o > 0 ? "auto" : "none"
+  );
+
   // Desktop: remap parent progress [0.44, 1.0] → [0, 1] for carousel
   const carouselRaw = useTransform(progress, [0.44, 1.0], [0, 1], {
     clamp: true,
@@ -121,7 +126,7 @@ export default function Projects({
       {scrollYProgress && (
         <motion.div
           className="hidden sm:flex flex-col items-center justify-center h-full pt-20 absolute inset-0"
-          style={{ opacity: sectionOpacity }}
+          style={{ opacity: sectionOpacity, pointerEvents }}
         >
           <SectionHeader>Some of My Projects</SectionHeader>
           <div className="relative w-full sm:h-[20rem]">
