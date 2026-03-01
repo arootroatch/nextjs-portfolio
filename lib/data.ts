@@ -1,9 +1,17 @@
 import React from "react";
 import {CgWorkAlt} from "react-icons/cg";
+import {FaBucket, FaCubes, FaFlask} from "react-icons/fa6";
+import {GiShipWheel} from "react-icons/gi";
 import {LuGraduationCap} from "react-icons/lu";
+import httpServer from "@/public/httpServer.png";
 import giftExchange from "@/public/GiftExchange.png";
 import soundRoots from "@/public/Sound Roots Shorter.gif";
 import ticTacToe from "@/public/ticTacToe.png";
+
+export enum ImagePlacement {
+  Right = "right",
+  Left = "left",
+}
 
 export const links = [
   {
@@ -65,12 +73,33 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "Full Stack Tic-Tac-Toe",
+    description: "Postgres or EDN database? Terminal, desktop, or web? Easy, medium, or hard? 3x3, 4x4, or 3x3x3? It's the most fully-architected Tic-Tac-Toe you've ever seen.",
+    tags: ["Clojure"],
+    imageUrl: ticTacToe,
+    url: "https://arootroatch-blog.vercel.app/ttt/index.html",
+    githubUrl: "https://github.com/arootroatch/tic-tac-toe-clojure",
+    imagePlacement: ImagePlacement.Right,
+  },
+  {
     title: "Gift Exchange Generator",
     description:
-      "An app I created to randomly pick names for gift exchanges. Includes Secret Santa mode with email sending, database lookup, and the ability to set exclusions.",
-    tags: ["Vanilla JS", "MongoDB", "PostMark", "Serverless"],
+      "Secret Santa for the digital age. Framework-free; I built my own state-centered, event-driven architecture. Over 70,000 gift exchange participants to date.",
+    tags: ["JavaScript", "MongoDB", "PostMark", "Serverless"],
     imageUrl: giftExchange,
     url: "https://giftexchangegenerator.netlify.app/",
+    githubUrl: "https://github.com/arootroatch/ChristmasGiftExchange",
+    imagePlacement: ImagePlacement.Right,
+  },
+  {
+    title: "Java HTTP Server",
+    description:
+      "A multi-threaded HTTP Server written with no external dependencies. Includes session management, static file serving, and multipart file uploads. Routes can be added extensibly.",
+    tags: ["Java"],
+    imageUrl: httpServer,
+    url: undefined,
+    githubUrl: "https://github.com/arootroatch/http-server-java",
+    imagePlacement: ImagePlacement.Right,
   },
   {
     title: "Sound Roots Productions",
@@ -79,45 +108,56 @@ export const projectsData = [
     tags: ["Vanilla JS", "lax.js", "flickity", "Netlify", "curator.io"],
     imageUrl: soundRoots,
     url: "https://www.soundrootsproductions.com/",
-  },
-  {
-    title: "Unwinnable Tic-Tac-Toe",
-    description: "Play against the computer... and lose! ",
-    tags: ["HTML", "CSS", "Vanilla JS"],
-    imageUrl: ticTacToe,
-    url: "https://unwinnable-tic-tac-toe.netlify.app/",
+    githubUrl: undefined,
+    imagePlacement: ImagePlacement.Left,
   },
 ] as const;
 
 export const blogPostsData = [
   {
+    title: "Kubernetes Crash Course",
+    description:
+      "If you feel like Kubernetes is some mystical black box where your application disappears into after you push to remote origin, this one's for you.",
+    date: "2026-02-28",
+    tags: ["Kubernetes", "DevOps", "Clean Coders"],
+    url: "https://cleancoders.com/blog/2026-02-28-kubernetes-crash-course",
+    icon: React.createElement(GiShipWheel),
+    iconHoverClass: "group-hover-spin",
+  },
+  {
     title: "Introducing ReMemory: The Solution to Your Re-rendering Woes",
     description:
-      "To solve performance problems in our ClojureScript Reagent front ends, Connor Kilgore and I wrote the ReMemory " +
-      "implementation of the C3Kit Bucket database API. This blog details how the built-in state management vastly " +
-      "improves front end performance and simplifies front end code, as well as how to use it in your applications.",
+      "Re-renders slowing down your ClojureScript Reagent app? Connor Kilgore and I built ReMemory to fix exactly that. " +
+      "Learn how its built-in state management simplifies your front end code and dramatically improves performance, " +
+      "plus how to start using it in your own applications.",
     date: "2026-01-30",
     tags: ["ClojureScript", "Reagent", "React", "Clean Coders"],
     url: "https://cleancoders.com/blog/2026-01-30-introducing-rememory-the-solution-to-your-re-rendering-woes",
+    icon: React.createElement(FaBucket),
+    iconHoverClass: "group-hover-shake",
   },
   {
     title: "Goodbye, Reagent Class Components! Using Reagent's `with-let` Macro",
     description:
-      "A guide for modernizing ClojureScript Reagent components to be written in a functional style rather than " +
-      "resorting to antiquated class component lifecycle hooks. Covers with-let, after-render, and useEffect interop." +
-      " Includes React function component examples for comparison.",
+      "Class components and lifecycle hooks had their day \u2014 it's time to move on. This guide walks through writing " +
+      "ClojureScript Reagent components in a clean, functional style using with-let, after-render, and useEffect interop, " +
+      "with React function component examples for comparison.",
     date: "2025-02-01",
     tags: ["ClojureScript", "Reagent", "React", "Clean Coders"],
     url: "https://cleancoders.com/blog/2025-02-01-goodbye-reagent-class-components-using-reagents-with-let-macro",
+    icon: React.createElement(FaFlask),
+    iconHoverClass: "group-hover-pour",
   },
   {
     title: "Test-Driven ClojureScript: Using Scaffold to Add a Frontend to Your Application",
     description:
-      "A guide for using C3Kit Scaffold, C3Kit Wire, and Speclj to create fully Test-Driven, Behavior-Driven front " +
-      "end applications in ClojureScript, using Reagent for application code and Garden for CSS styling.",
+      "Setting up a test-driven ClojureScript frontend from scratch can feel daunting. This guide walks through using " +
+      "C3Kit Scaffold, Wire, and Speclj to build fully test-driven, behavior-driven applications with Reagent and Garden CSS.",
     date: "2024-11-18",
     tags: ["ClojureScript", "Reagent", "TDD", "BDD", "Clean Coders"],
     url: "https://cleancoders.com/blog/2024-11-18-test-driven-clojurescript-using-scaffold-to-add-a-frontend-to-your-application",
+    icon: React.createElement(FaCubes),
+    iconHoverClass: "group-hover-scatter",
   },
 ] as const;
 

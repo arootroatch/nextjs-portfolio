@@ -13,6 +13,8 @@ export default function BlogPost({
   date,
   tags,
   url,
+  icon,
+  iconHoverClass,
 }: BlogPostProps) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -35,7 +37,7 @@ export default function BlogPost({
         className="bg-gray-100/50 max-w-[42rem] border border-black/5 overflow-hidden relative hover:bg-white/65 transition rounded-lg dark:bg-white/10 dark:hover:bg-white/20 dark:text-white"
       >
         <Link href={url} target="_blank" rel="nofollow noreferrer">
-          <div className="py-4 pb-7 px-5 sm:pl-10 sm:pr-10 sm:pt-8 flex flex-col h-full">
+          <div className="py-4 pb-7 px-5 sm:pl-10 sm:pr-8 sm:pt-8 flex flex-col h-full sm:mr-28">
             <p className="text-sm text-gray-500 dark:text-white/50 mb-1">
               {date}
             </p>
@@ -54,6 +56,9 @@ export default function BlogPost({
               ))}
             </ul>
           </div>
+          <span className={`absolute -right-24 top-1/2 -translate-y-1/2 text-[18rem] opacity-[0.07] group-hover:opacity-[0.12] transition dark:text-white pointer-events-none ${iconHoverClass}`}>
+            {icon}
+          </span>
         </Link>
       </section>
     </motion.div>
