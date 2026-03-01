@@ -12,7 +12,7 @@ export const projectsData = [
   {
     title: "Full Stack Tic-Tac-Toe",
     description: "Postgres or EDN database? Terminal, desktop, or web? Easy, medium, or hard? 3x3, 4x4, or 3x3x3? It's the most fully-architected Tic-Tac-Toe you've ever seen.",
-    tags: ["Clojure"],
+    tags: ["Clojure", "Speclj", "TDD", "SQL"],
     imageUrl: ticTacToe,
     url: "https://arootroatch-blog.vercel.app/ttt/index.html",
     githubUrl: "https://github.com/arootroatch/tic-tac-toe-clojure",
@@ -22,7 +22,7 @@ export const projectsData = [
     title: "Gift Exchange Generator",
     description:
       "Secret Santa for the digital age. Framework-free; I built my own state-centered, event-driven architecture. Over 70,000 gift exchange participants to date.",
-    tags: ["JavaScript", "MongoDB", "PostMark", "Serverless"],
+    tags: ["JS", "MongoDB", "PostMark", "Serverless", "Vitest"],
     imageUrl: giftExchange,
     url: "https://giftexchangegenerator.netlify.app/",
     githubUrl: "https://github.com/arootroatch/ChristmasGiftExchange",
@@ -32,7 +32,7 @@ export const projectsData = [
     title: "Java HTTP Server",
     description:
       "A multi-threaded HTTP Server written with no external dependencies. Includes session management, static file serving, and multipart file uploads. Routes can be added extensibly.",
-    tags: ["Java"],
+    tags: ["Java", "JUnit"],
     imageUrl: httpServer,
     url: undefined,
     githubUrl: "https://github.com/arootroatch/http-server-java",

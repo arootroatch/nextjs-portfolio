@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { links } from "@/lib/data";
-import Link from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/ActiveSectionContext";
 
@@ -25,7 +24,7 @@ export default function Header() {
               initial={{ y: -100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
             >
-              <Link
+              <a
                 className={clsx(
                   "justify-center px-3 py-3 hover:text-gray-950 transition dark:text-gray-400 dark:hover:text-gray-300",
                   {
@@ -51,7 +50,7 @@ export default function Header() {
                     }}
                   ></motion.span>
                 )}
-              </Link>
+              </a>
             </motion.li>
           ))}
         </ul>
