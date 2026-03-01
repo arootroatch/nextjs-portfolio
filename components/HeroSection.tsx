@@ -1,7 +1,7 @@
 "use client";
 import { useRef } from "react";
-import { useScroll } from "framer-motion";
-import { useSectionInView } from "@/lib/hooks";
+import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useActiveSectionContext } from "@/context/ActiveSectionContext";
 import Intro from "./Intro";
 import About from "./About";
 import Projects from "./Projects";
@@ -17,9 +17,21 @@ export default function HeroSection() {
     offset: ["start start", "end end"],
   });
 
-  const { ref: homeRef } = useSectionInView("Home");
-  const { ref: aboutRef } = useSectionInView("About");
-  const { ref: projectsRef } = useSectionInView("Projects", 0.2);
+  const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
+
+  // Derive active section from scroll progress instead of intersection observers.
+  // Intro visible: progress 0–0.082, About: 0.082–0.385, Projects: 0.385–1.0
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (Date.now() - timeOfLastClick > 1000) {
+      if (latest < 0.15) {
+        setActiveSection("Home");
+      } else if (latest < 0.4) {
+        setActiveSection("About");
+      } else {
+        setActiveSection("Projects");
+      }
+    }
+  });
 
   return (
     <>
@@ -29,10 +41,10 @@ export default function HeroSection() {
         className="hidden sm:block relative w-full"
         style={{ height: `calc(${TOTAL_SCROLL}px + 100vh)` }}
       >
-        {/* Nav sentinels — absolutely positioned, scroll with document */}
-        <span id="Home" ref={homeRef} className="absolute top-[200px] scroll-mt-96" />
-        <span id="About" ref={aboutRef} className="absolute top-[1200px] scroll-mt-96" />
-        <span id="projects" ref={projectsRef} className="absolute top-[1800px] scroll-mt-28" />
+        {/* Anchor targets for nav hash links */}
+        <span id="Home" className="absolute top-[200px] scroll-mt-96" />
+        <span id="About" className="absolute top-[1200px] scroll-mt-96" />
+        <span id="projects" className="absolute top-[1800px] scroll-mt-28" />
 
         {/* Sticky viewport — all scroll-driven content lives here */}
         <div className="sticky top-0 h-screen overflow-visible">
