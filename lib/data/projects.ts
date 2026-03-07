@@ -14,7 +14,7 @@ export const projectsData = [
     description: "Postgres or EDN database? Terminal, desktop, or web? Easy, medium, or hard? 3x3, 4x4, or 3x3x3? It's the most fully-architected Tic-Tac-Toe you've ever seen.",
     tags: ["Clojure", "Speclj", "TDD", "SQL"],
     imageUrl: ticTacToe,
-    url: "https://arootroatch-blog.vercel.app/ttt/index.html",
+    url: "https://tic-tac-toe-clojure.vercel.app/",
     githubUrl: "https://github.com/arootroatch/tic-tac-toe-clojure",
     imagePlacement: ImagePlacement.Right,
   },
