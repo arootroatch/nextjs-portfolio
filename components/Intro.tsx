@@ -46,7 +46,7 @@ export default function Intro({
     <>
       <div className="flex items-center justify-center">
         <motion.h1
-          className="mb-5 mt-2 mr-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl relative bg-white dark:bg-[#491c3d56] bg-opacity-60 rounded-lg"
+          className="mb-5 mt-2 mr-4 px-4 text-xl font-medium !leading-[1.5] sm:text-3xl relative bg-white dark:bg-[#491c3d56] bg-opacity-60 rounded-lg"
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
         >
