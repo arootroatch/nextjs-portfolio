@@ -1,4 +1,3 @@
-import React from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import SectionHeader from "./SectionHeader";
@@ -9,13 +8,6 @@ import {
   motionValue,
 } from "framer-motion";
 import { aboutData } from "@/lib/data";
-import GuitarSVG from "./svg/GuitarSVG";
-import HandPlaneSVG from "./svg/HandPlaneSVG";
-import DroneSVG from "./svg/DroneSVG";
-import CodeTerminalSVG from "./svg/CodeTerminalSVG";
-import MixerSVG from "./svg/MixerSVG";
-import DogSVG from "./svg/DogSVG";
-import CountryHouseSVG from "./svg/CountryHouseSVG";
 
 const markdownComponents: Components = {
   p: ({ children }) => <>{children}</>,
@@ -28,27 +20,82 @@ const markdownComponents: Components = {
 
 const STATIC_ZERO = motionValue(0);
 
-const mobileIconGroups = [
-  // P1 (index 0): left icons — craft/guitar hobbies
-  <div key="icons-0" className="flex-shrink-0 w-16 flex flex-col gap-2">
-    <GuitarSVG className="w-14 h-14 animate-float text-gray-700 dark:text-gray-300" />
-    <HandPlaneSVG className="w-12 h-12 animate-float-delayed text-gray-700 dark:text-gray-300" />
-  </div>,
-  // P2 (index 1): right icons — tech work
-  <div key="icons-1" className="flex-shrink-0 w-16 flex flex-col gap-2">
-    <DroneSVG className="w-14 h-14 animate-float text-gray-700 dark:text-gray-300" />
-    <CodeTerminalSVG className="w-12 h-12 animate-float-delayed text-gray-700 dark:text-gray-300" />
-  </div>,
-  // P3 (index 2): left icon — audio engineering (single, larger)
-  <div key="icons-2" className="flex-shrink-0 w-16 flex flex-col gap-2">
-    <MixerSVG className="w-16 h-16 animate-float text-gray-700 dark:text-gray-300" />
-  </div>,
-  // P4 (index 3): right icons — personal life
-  <div key="icons-3" className="flex-shrink-0 w-16 flex flex-col gap-2">
-    <DogSVG className="w-14 h-14 animate-float text-gray-700 dark:text-gray-300" />
-    <CountryHouseSVG className="w-12 h-12 animate-float-delayed text-gray-700 dark:text-gray-300" />
-  </div>,
-];
+function AboutParagraph({ text }: { text: string }) {
+  return (
+    <p className="bg-[rgba(217,199,214,0.34)] dark:bg-transparent rounded-lg text-left">
+      <ReactMarkdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
+        {text}
+      </ReactMarkdown>
+    </p>
+  );
+}
+
+function FlowerField({ opacity, y }: { opacity: MotionValue<number>; y: MotionValue<number> }) {
+  return (
+    <motion.div
+      className="absolute -bottom-32 left-0 right-0 flex justify-center items-end pointer-events-none"
+      style={{ opacity, y }}
+    >
+      <img src="/noun-poppy-fields-7976627.svg" alt="" className="w-72 h-96 dark:invert opacity-10 -mb-16" />
+      <img src="/noun-flower-bouquet-7735656.svg" alt="" className="w-80 h-[26rem] dark:invert opacity-10 -mb-20 -mx-20" />
+      <img src="/noun-poppy-fields-7976627.svg" alt="" className="w-64 h-80 dark:invert opacity-10 -mb-12 -mx-16 scale-x-[-1]" />
+      <img src="/noun-flower-bouquet-7735656.svg" alt="" className="w-72 h-96 dark:invert opacity-10 -mb-16 -mx-20 scale-x-[-1]" />
+      <img src="/noun-poppy-fields-7976627.svg" alt="" className="w-80 h-[26rem] dark:invert opacity-10 -mb-20 -mx-16" />
+      <img src="/noun-flower-bouquet-7735656.svg" alt="" className="w-64 h-80 dark:invert opacity-10 -mb-12 -mx-20" />
+      <img src="/noun-poppy-fields-7976627.svg" alt="" className="w-72 h-96 dark:invert opacity-10 -mb-16 -mx-16 scale-x-[-1]" />
+    </motion.div>
+  );
+}
+
+function AudiencePhoto({
+  opacity,
+  pointerEvents,
+  y,
+}: {
+  opacity: MotionValue<number>;
+  pointerEvents: MotionValue<"auto" | "none">;
+  y: MotionValue<number>;
+}) {
+  return (
+    <motion.div
+      className="absolute bottom-0 left-0 right-0 flex justify-center"
+      style={{ opacity, pointerEvents, y }}
+    >
+      <div className="relative w-full">
+        <img src="/audience.png" alt="" className="w-full max-h-[30vh] object-cover opacity-10" />
+        <a
+          href="https://pngtree.com/freepng/audiences-in-club-musical_8485712.html"
+          className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[10px] opacity-30 hover:opacity-60 transition"
+        >
+          png image from pngtree.com
+        </a>
+      </div>
+    </motion.div>
+  );
+}
+
+function SideIcon({
+  src,
+  className,
+  position,
+  opacity,
+  x,
+}: {
+  src: string;
+  className: string;
+  position: string;
+  opacity: MotionValue<number>;
+  x: MotionValue<number>;
+}) {
+  return (
+    <motion.div
+      className={`absolute top-[50%] -translate-y-1/2 ${position}`}
+      style={{ opacity, x }}
+    >
+      <img src={src} alt="" className={className} />
+    </motion.div>
+  );
+}
 
 export default function About({
   scrollYProgress,
@@ -74,110 +121,84 @@ export default function About({
     o > 0.1 ? "auto" : "none"
   );
 
-  // P3 entrance animations — line arrays from sides, audience from bottom
-  const p3LeftX = useTransform(progress, [0.38, 0.44], [-200, 0]);
-  const p3RightX = useTransform(progress, [0.38, 0.44], [200, 0]);
-  const p3AudienceY = useTransform(progress, [0.38, 0.44], [100, 0]);
+  // Bottom accent animations
+  const p1BottomY = useTransform(progress, [0.06, 0.12, 0.20, 0.22], [100, 0, 0, 100]);
+  const p3AudienceY = useTransform(progress, [0.38, 0.44, 0.52, 0.54], [100, 0, 0, 100]);
+  const p4BottomY = useTransform(progress, [0.54, 0.60, 0.65, 0.677], [100, 0, 0, 100]);
 
-  // Desktop icons: [leftIcon, rightIcon] per paragraph — each in its own motion.div
-  const desktopIcons: [React.ReactNode, React.ReactNode][] = [
-    [<GuitarSVG key="guitar" className="w-32 h-32 animate-float text-gray-700 dark:text-gray-300" />, <HandPlaneSVG key="plane" className="w-32 h-32 animate-float-delayed text-gray-700 dark:text-gray-300" />],
-    [<DroneSVG key="drone" className="w-32 h-32 animate-float text-gray-700 dark:text-gray-300" />, <CodeTerminalSVG key="terminal" className="w-32 h-32 animate-float-delayed text-gray-700 dark:text-gray-300" />],
-    [<img key="linearray-l" src="/line array vector svg.svg" alt="" className="w-52 h-52 -mt-40 dark:invert opacity-50" />, <img key="linearray-r" src="/line array vector svg.svg" alt="" className="w-52 h-52 -mt-40 dark:invert opacity-50 scale-x-[-1]" />],
-    [<DogSVG key="dog" className="w-32 h-32 animate-float text-gray-700 dark:text-gray-300" />, <CountryHouseSVG key="house" className="w-32 h-32 animate-float-delayed text-gray-700 dark:text-gray-300" />],
-  ];
+  // Side icon slide animations
+  const p2LeftX = useTransform(progress, [0.22, 0.28, 0.36, 0.38], [-200, 0, 0, -200]);
+  const p2RightX = useTransform(progress, [0.22, 0.28, 0.36, 0.38], [200, 0, 0, 200]);
+  const p3LeftX = useTransform(progress, [0.38, 0.44, 0.52, 0.54], [-200, 0, 0, -200]);
+  const p3RightX = useTransform(progress, [0.38, 0.44, 0.52, 0.54], [200, 0, 0, 200]);
 
-  // Desktop: absolute within sticky wrapper, driven by scrollYProgress
+  // Desktop: scroll-driven animations
   if (scrollYProgress) {
     return (
-      <section className="text-center h-full w-full leading-8 absolute inset-0">
-        {/* Header above center */}
+      <section className="text-center h-full w-full leading-8 absolute inset-0 overflow-visible">
         <motion.div className="absolute top-[30%] left-0 right-0" style={{ opacity: headerOpacity }}>
           <SectionHeader>About Me</SectionHeader>
         </motion.div>
 
-        {/* Paragraphs centered, icons independently positioned on each side */}
         <div className="absolute top-[55%] -translate-y-1/2 left-0 right-0 px-4">
           <div className="relative h-[16rem]">
             {aboutData.map((text, index) => (
               <motion.div
                 key={index}
-                className="max-w-[40rem] mx-auto absolute top-0 left-1/2 -translate-x-1/2"
+                className="w-[90%] xl:w-auto xl:max-w-[40rem] mx-auto absolute top-0 left-0 right-0"
                 style={{ opacity: paragraphOpacities[index] }}
               >
-                <p className="bg-[rgba(217,199,214,0.34)] dark:bg-transparent rounded-lg text-left">
-                  <ReactMarkdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
-                    {text}
-                  </ReactMarkdown>
-                </p>
+                <AboutParagraph text={text} />
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Audience photo — bottom of screen during audio engineering paragraph (P3) */}
+        <AudiencePhoto opacity={paragraphOpacities[2]} pointerEvents={p3PointerEvents} y={p3AudienceY} />
+
+        {/* Chisel — P1 */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 flex justify-center"
-          style={{ opacity: paragraphOpacities[2], pointerEvents: p3PointerEvents, y: p3AudienceY }}
+          className="absolute -bottom-[22rem] left-0 right-0 flex justify-center pointer-events-none overflow-visible"
+          style={{ opacity: paragraphOpacities[0], y: p1BottomY }}
         >
-          <div className="relative w-full">
-            <img src="/audience.png" alt="" className="w-full max-h-[30vh] object-cover opacity-10" />
-            <a href="https://pngtree.com/freepng/audiences-in-club-musical_8485712.html" className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[10px] opacity-30 hover:opacity-60 transition ">png image from pngtree.com</a>
-          </div>
+          <img
+            src="/noun-chisel-5271019.svg"
+            alt=""
+            className="w-[44rem] h-[44rem] dark:invert opacity-10"
+            style={{ transform: "rotate(-45deg)" }}
+          />
         </motion.div>
 
-        {/* Icons — each in its own motion.div, positioned to the sides */}
-        {desktopIcons.map(([leftIcon, rightIcon], index) => (
-          <React.Fragment key={`icons-${index}`}>
-            {leftIcon && (
-              <motion.div
-                className="absolute left-[12%] top-[50%] -translate-y-1/2"
-                style={{ opacity: paragraphOpacities[index], x: index === 2 ? p3LeftX : 0 }}
-              >
-                {leftIcon}
-              </motion.div>
-            )}
-            {rightIcon && (
-              <motion.div
-                className="absolute right-[12%] top-[50%] -translate-y-1/2"
-                style={{ opacity: paragraphOpacities[index], x: index === 2 ? p3RightX : 0 }}
-              >
-                {rightIcon}
-              </motion.div>
-            )}
-          </React.Fragment>
-        ))}
+        <FlowerField opacity={paragraphOpacities[3]} y={p4BottomY} />
+
+        <SideIcon src="/noun-drone-8174065.svg" className="w-[40rem] h-[40rem] -mt-72 -ml-24 dark:invert opacity-10" position="-left-24" opacity={paragraphOpacities[1]} x={p2LeftX} />
+        <SideIcon src="/noun-shopping-cart-5419148.svg" className="w-[30rem] h-[30rem] -mt-48 dark:invert opacity-10 scale-x-[-1]" position="-right-48" opacity={paragraphOpacities[1]} x={p2RightX} />
+        <SideIcon src="/line array vector svg.svg" className="w-80 h-80 -mt-40 dark:invert opacity-10" position="-left-24" opacity={paragraphOpacities[2]} x={p3LeftX} />
+        <SideIcon src="/line array vector svg.svg" className="w-80 h-80 -mt-40 dark:invert opacity-10 scale-x-[-1]" position="-right-24" opacity={paragraphOpacities[2]} x={p3RightX} />
       </section>
     );
   }
 
-  // Mobile: normal flow, paragraphs animate in via whileInView with icons
+  // Mobile: whileInView animations
   return (
-    <section className="mb-28 max-w-[50rem] text-center w-full leading-8 px-4">
+    <section className="mb-28 w-full text-center leading-8 overflow-visible">
       <SectionHeader>About Me</SectionHeader>
-      {aboutData.map((text, index) => {
-        const isEven = index % 2 === 0;
-        return (
-          <motion.div
-            key={index}
-            className={`flex ${isEven ? "flex-row" : "flex-row-reverse"} items-center gap-4 max-w-[42rem] mx-auto mb-8`}
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            {mobileIconGroups[index]}
-            <p className="bg-[rgba(217,199,214,0.34)] dark:bg-transparent rounded-lg">
-              <ReactMarkdown
-                rehypePlugins={[rehypeRaw]}
-                components={markdownComponents}
-              >
-                {text}
-              </ReactMarkdown>
-            </p>
-          </motion.div>
-        );
-      })}
+      {aboutData.map((text, index) => (
+        <motion.div
+          key={index}
+          className="relative mb-4"
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ margin: "-50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <p className="bg-[rgba(217,199,214,0.34)] dark:bg-transparent rounded-lg px-4 mx-4">
+            <ReactMarkdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
+              {text}
+            </ReactMarkdown>
+          </p>
+        </motion.div>
+      ))}
     </section>
   );
 }
