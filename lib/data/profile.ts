@@ -1,9 +1,13 @@
 export const introData =
-  "**Hello, I'm Alex.** I'm a **full-stack developer** with **4 years** of experience. I especially love developing *engaging UIs*. My focus is <u>React (Next.js) with React-Redux</u>.";
+  "**Hi, I'm Alex** — a *Software Engineer* who builds maintainable systems with whatever language is the *best tool for the job* - but Clojure is my favorite. From payroll platforms to drone traffic management, I bring the same *precision* to software that I brought to 10 years of professional audio engineering.";
+
+// industries of *payroll/accounting, UAS/UTM, e-commerce*, and *online education*
 
 export const aboutData = [
-  "As a professional audio engineer, I've always loved technology and problem solving. When the pandemic shut down my *entire industry* for few months, I took the opportunity to **learn how to code.** Since then, I've used my skills to build web pages and automation workflows for my own business. *I'm passionate about coding* because, like audio engineering, it's a perfect three-way intersection of **creativity, problem-solving, and technology.** I <u>love</u> writing code that creatively solves a *real-world problem,* as well as solving the logic puzzle of debugging my code. My core stack is **React, Next.js, Node.js, and MongoDB,** and I'm always looking to learn new things.",
-  "*When I'm not coding,* you can find me running sound at live shows or mentoring live audio students. I enjoy playing classical guitar and reading books in both English and Spanish. My wife and I enjoy playing board games and video games, traveling, and going on adventures with our two dogs.",
+  'I believe writing great software is a **craft trade**, like making high-quality custom furniture or fine classical guitars. It requires integrity, high standards, *guiding principles*, and a willingness to go beyond "it works" to build systems that are truly maintainable, testable, and **built to last**.',
+  "I work at a bespoke software development firm, where I've had the privilege of diving into *wildly* different industries — payroll, accounting, drone traffic management, e-commerce, and online education. Every engagement is a new puzzle: I've written a front-end library that **boosted UI performance 6x**, built a webhook-driven Jira sync server that let a client's team and their corporate partners stay in their own tools without missing a beat, and rewrote a mobile commerce backend in **three weeks** that had been under development for *six months* — with **full test coverage** this time. One of my favorite projects was a cross-platform CLI with a custom test runner that integrated with an online learning platform.",
+  "Before all of this, I spent 10 years as a professional audio engineer, from local venues to *arena tours* and commercial studios. Whether I'm building a PA system for a 20,000-seat arena, architecting a web application on Kubernetes, or **mentoring a colleague** through their first production deploy, the thrill is the same — creative problem-solving in service of the people around me.",
+  "When I'm not coding or tinkering in my homelab, you'll find me serving my local church, playing classical or fingerstyle guitar, reading, or helping my wife take care of our homestead in the Tennessee countryside."
 ] as const;
 
 export const skillsData = [
