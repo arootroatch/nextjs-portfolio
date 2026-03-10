@@ -111,3 +111,17 @@ html.dark {
 .animate-float-delayed {
   animation: float 3s ease-in-out 1.5s infinite;
 }
+
+@keyframes float-mirrored {
+  0%, 100% {
+    transform: scaleX(-1) translateY(0px);
+  }
+  50% {
+    transform: scaleX(-1) translateY(-8px);
+  }
+}
+
+.animate-float-mirrored {
+  transform: scaleX(-1);
+  animation: float-mirrored 3s ease-in-out 1.5s infinite;
+}
