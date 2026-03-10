@@ -6,7 +6,7 @@ import Intro from "./Intro";
 import About from "./About";
 import Projects from "./Projects";
 
-const HERO_SCROLL = 1400;
+const HERO_SCROLL = 4700;
 const PROJECTS_SCROLL = 2240; // TOTAL_SCROLL_EXTRA from Projects
 const TOTAL_SCROLL = HERO_SCROLL + PROJECTS_SCROLL;
 
@@ -23,9 +23,9 @@ export default function HeroSection() {
   // Intro visible: progress 0–0.082, About: 0.082–0.385, Projects: 0.385–1.0
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (Date.now() - timeOfLastClick > 1000) {
-      if (latest < 0.15) {
+      if (latest < 0.08) {
         setActiveSection("Home");
-      } else if (latest < 0.4) {
+      } else if (latest < 0.68) {
         setActiveSection("About");
       } else {
         setActiveSection("Projects");
@@ -44,7 +44,7 @@ export default function HeroSection() {
         {/* Anchor targets for nav hash links */}
         <span id="Home" className="absolute top-[200px] scroll-mt-96" />
         <span id="About" className="absolute top-[1200px] scroll-mt-96" />
-        <span id="projects" className="absolute top-[1800px] scroll-mt-28" />
+        <span id="projects" className="absolute top-[5200px] scroll-mt-28" />
 
         {/* Sticky viewport — all scroll-driven content lives here */}
         <div className="sticky top-0 h-screen overflow-visible">
