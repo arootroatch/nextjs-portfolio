@@ -68,7 +68,7 @@ export default function Projects({
   // Desktop: section opacity fades in from parent progress
   const sectionOpacity = useTransform(
     progress,
-    [0, 0.385, 0.44],
+    [0, 0.677, 0.72],
     [0, 0, 1]
   );
 
@@ -77,8 +77,8 @@ export default function Projects({
     o > 0 ? "auto" : "none"
   );
 
-  // Desktop: remap parent progress [0.44, 1.0] → [0, 1] for carousel
-  const carouselRaw = useTransform(progress, [0.44, 1.0], [0, 1], {
+  // Desktop: remap parent progress [0.72, 1.0] → [0, 1] for carousel
+  const carouselRaw = useTransform(progress, [0.72, 1.0], [0, 1], {
     clamp: true,
   });
 

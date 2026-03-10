@@ -56,36 +56,52 @@ export default function About({
   scrollYProgress?: MotionValue<number>;
 }) {
   const progress = scrollYProgress ?? STATIC_ZERO;
-  const desktopOpacity = useTransform(
+
+  const headerOpacity = useTransform(
     progress,
-    [0, 0.082, 0.22, 0.357, 0.385],
+    [0, 0.043, 0.10, 0.65, 0.677],
     [0, 0, 1, 1, 0]
   );
 
-  const paragraphs = aboutData.map((text, index) => (
-    <p
-      key={index}
-      className={`max-w-[42rem] mx-auto bg-[rgba(217,199,214,0.34)] dark:bg-transparent rounded-lg${index < aboutData.length - 1 ? " mb-3" : ""}`}
-    >
-      <ReactMarkdown
-        rehypePlugins={[rehypeRaw]}
-        components={markdownComponents}
-      >
-        {text}
-      </ReactMarkdown>
-    </p>
-  ));
+  const p1Opacity = useTransform(progress, [0.06, 0.12, 0.20, 0.22], [0, 1, 1, 0]);
+  const p2Opacity = useTransform(progress, [0.22, 0.28, 0.36, 0.38], [0, 1, 1, 0]);
+  const p3Opacity = useTransform(progress, [0.38, 0.44, 0.52, 0.54], [0, 1, 1, 0]);
+  const p4Opacity = useTransform(progress, [0.54, 0.60, 0.65, 0.677], [0, 1, 1, 0]);
+
+  const paragraphOpacities = [p1Opacity, p2Opacity, p3Opacity, p4Opacity];
+
+  const desktopIconGroups = [
+    [<GuitarSVG key="guitar" className="w-16 h-16 animate-float text-gray-700 dark:text-gray-300" />, <HandPlaneSVG key="plane" className="w-14 h-14 animate-float-delayed text-gray-700 dark:text-gray-300" />],
+    [<DroneSVG key="drone" className="w-16 h-16 animate-float text-gray-700 dark:text-gray-300" />, <CodeTerminalSVG key="terminal" className="w-14 h-14 animate-float-delayed text-gray-700 dark:text-gray-300" />],
+    [<MixerSVG key="mixer" className="w-20 h-20 animate-float text-gray-700 dark:text-gray-300" />],
+    [<DogSVG key="dog" className="w-16 h-16 animate-float text-gray-700 dark:text-gray-300" />, <CountryHouseSVG key="house" className="w-14 h-14 animate-float-delayed text-gray-700 dark:text-gray-300" />],
+  ];
 
   // Desktop: absolute within sticky wrapper, driven by scrollYProgress
   if (scrollYProgress) {
     return (
-      <motion.section
-        className="sm:pl-5 sm:pr-9 max-w-[50rem] text-center h-full w-full leading-8 absolute top-[68%] -translate-y-1/2 left-1/2 -translate-x-1/2 px-4"
-        style={{ opacity: desktopOpacity }}
-      >
-        <SectionHeader>About Me</SectionHeader>
-        {paragraphs}
-      </motion.section>
+      <section className="sm:pl-5 sm:pr-9 max-w-[50rem] text-center h-full w-full leading-8 absolute top-[68%] -translate-y-1/2 left-1/2 -translate-x-1/2 px-4">
+        <motion.div style={{ opacity: headerOpacity }}>
+          <SectionHeader>About Me</SectionHeader>
+        </motion.div>
+
+        {aboutData.map((text, index) => (
+          <motion.div
+            key={index}
+            className={`flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} items-center gap-4 max-w-[42rem] mx-auto absolute top-[40%] left-1/2 -translate-x-1/2`}
+            style={{ opacity: paragraphOpacities[index] }}
+          >
+            <div className="flex-shrink-0 w-20 flex flex-col items-center gap-3">
+              {desktopIconGroups[index]}
+            </div>
+            <p className="bg-[rgba(217,199,214,0.34)] dark:bg-transparent rounded-lg">
+              <ReactMarkdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
+                {text}
+              </ReactMarkdown>
+            </p>
+          </motion.div>
+        ))}
+      </section>
     );
   }
 

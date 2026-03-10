@@ -30,15 +30,15 @@ export default function Intro({
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   const progress = scrollYProgress ?? STATIC_ZERO;
-  const desktopOpacity = useTransform(progress, [0, 0.082], [1, 0]);
+  const desktopOpacity = useTransform(progress, [0, 0.043], [1, 0]);
   const desktopHeight = useTransform(
     progress,
-    [0, 0.124, 0.137],
+    [0, 0.065, 0.072],
     ["auto", "auto", 0]
   );
   const desktopOverflowY = useTransform(
     progress,
-    [0, 0.124, 0.137],
+    [0, 0.065, 0.072],
     ["visible", "visible", "hidden"]
   );
 
