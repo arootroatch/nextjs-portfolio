@@ -3,66 +3,211 @@ import React from "react";
 export default function DogSVG({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 100 100"
+      viewBox="0 0 512 512"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       fill="currentColor"
     >
-      {/* Sitting dog silhouette */}
+      {/*
+        Sitting dog silhouette - detailed, organic curves.
+        Golden retriever / labrador type build.
+      */}
 
-      {/* Head */}
-      <ellipse cx="50" cy="28" rx="16" ry="15" />
+      {/* === TAIL - curled up and over back === */}
+      <path d="
+        M 338 320
+        C 346 308 358 296 370 290
+        C 384 284 400 286 412 296
+        C 426 308 430 328 424 346
+        C 418 364 404 376 388 382
+        C 372 388 356 384 344 374
+        C 336 368 330 358 330 348
+        C 330 338 334 328 338 320 Z
+      " />
+      {/* Tail inner - slightly narrower to show volume */}
+      <path
+        fillRule="evenodd"
+        d="
+          M 338 320 C 346 308 358 296 370 290 C 384 284 400 286 412 296 C 426 308 430 328 424 346 C 418 364 404 376 388 382 C 372 388 356 384 344 374 C 336 368 330 358 330 348 C 330 338 334 328 338 320 Z
+          M 346 324 C 352 314 362 304 374 299 C 386 294 400 296 410 304 C 420 314 422 330 418 344 C 414 358 404 368 390 373 C 376 378 362 374 352 364 C 344 358 340 348 342 338 C 342 332 344 328 346 324 Z
+        "
+      />
 
-      {/* Left ear - floppy */}
-      <path d="M35 20 Q26 14 24 26 Q22 34 30 36 Q34 30 36 26 Z" />
+      {/* === BODY - large torso, sitting posture === */}
+      <path d="
+        M 100 290
+        C 96 272 96 252 102 236
+        C 110 216 124 200 144 190
+        C 160 182 180 178 198 178
+        L 318 178
+        C 338 178 356 184 370 196
+        C 384 208 392 226 392 244
+        L 392 300
+        C 392 320 386 338 374 352
+        C 362 366 344 374 322 378
+        L 190 378
+        C 168 378 150 370 136 356
+        C 120 340 106 318 100 290 Z
+      " />
 
-      {/* Right ear - floppy */}
-      <path d="M65 20 Q74 14 76 26 Q78 34 70 36 Q66 30 64 26 Z" />
+      {/* === FRONT LEGS (sitting, bent forward) === */}
+      {/* Left front leg */}
+      <path d="
+        M 138 340
+        C 128 340 118 348 114 360
+        L 110 400
+        C 108 412 112 426 118 438
+        L 122 456
+        C 124 464 130 468 138 468
+        L 162 468
+        C 170 468 176 462 176 454
+        L 176 440
+        C 180 430 180 418 176 408
+        L 168 380
+        C 162 358 152 340 138 340 Z
+      " />
 
-      {/* Snout */}
-      <ellipse cx="50" cy="36" rx="9" ry="7" />
+      {/* Right front leg */}
+      <path d="
+        M 300 340
+        C 312 340 322 348 326 360
+        L 330 400
+        C 332 412 328 426 322 438
+        L 318 456
+        C 316 464 310 468 302 468
+        L 278 468
+        C 270 468 264 462 264 454
+        L 264 440
+        C 260 430 260 418 264 408
+        L 272 380
+        C 278 358 288 340 300 340 Z
+      " />
 
-      {/* Nose */}
-      <ellipse cx="50" cy="33" rx="4" ry="3" />
+      {/* Left paw */}
+      <path d="
+        M 110 454 C 104 456 98 462 98 470 C 98 478 106 484 116 484 L 170 484 C 180 484 188 478 188 470 C 188 462 182 456 176 454 Z
+      " />
+      {/* Left paw toes */}
+      <ellipse cx="124" cy="484" rx="8" ry="5" />
+      <ellipse cx="140" cy="486" rx="8" ry="5" />
+      <ellipse cx="156" cy="484" rx="8" ry="5" />
 
-      {/* Eyes - as small cutouts/features */}
-      <circle cx="43" cy="25" r="2.5" />
-      <circle cx="57" cy="25" r="2.5" />
+      {/* Right paw */}
+      <path d="
+        M 264 454 C 258 456 252 462 252 470 C 252 478 260 484 270 484 L 324 484 C 334 484 342 478 342 470 C 342 462 336 456 330 454 Z
+      " />
+      {/* Right paw toes */}
+      <ellipse cx="278" cy="484" rx="8" ry="5" />
+      <ellipse cx="294" cy="486" rx="8" ry="5" />
+      <ellipse cx="310" cy="484" rx="8" ry="5" />
 
-      {/* Eye shine dots - lighter */}
-      <circle cx="44" cy="24" r="1" fill="currentColor" />
-      <circle cx="58" cy="24" r="1" fill="currentColor" />
+      {/* === HEAD === */}
+      <path d="
+        M 156 110
+        C 148 92 144 74 148 58
+        C 152 42 162 30 176 22
+        C 192 14 212 12 230 16
+        C 244 20 256 28 264 40
+        C 280 28 300 22 318 22
+        C 340 22 358 34 364 52
+        C 370 68 364 86 354 100
+        C 368 112 378 128 378 148
+        C 378 168 368 186 352 198
+        C 336 210 314 216 292 214
+        L 256 214
+        L 220 214
+        C 198 214 178 208 162 196
+        C 146 184 136 166 136 148
+        C 136 130 144 118 156 110 Z
+      " />
 
-      {/* Neck / collar area */}
-      <path d="M36 40 Q34 44 34 48 L66 48 Q66 44 64 40 Q57 43 50 43 Q43 43 36 40 Z" />
+      {/* === SNOUT === */}
+      <path d="
+        M 196 168
+        C 190 162 188 154 190 146
+        C 192 138 198 132 206 128
+        C 218 122 238 120 254 120
+        C 270 120 288 122 300 128
+        C 308 132 314 138 316 146
+        C 318 154 316 162 310 168
+        C 300 178 282 184 256 184
+        C 230 184 212 178 196 168 Z
+      " />
 
-      {/* Collar band */}
-      <rect x="34" y="44" width="32" height="5" rx="2" />
+      {/* === NOSE === */}
+      <path d="
+        M 226 130
+        C 222 128 216 128 212 132
+        C 208 136 208 144 212 148
+        C 218 154 234 156 256 156
+        C 278 156 294 154 300 148
+        C 304 144 304 136 300 132
+        C 296 128 290 128 286 130
+        C 278 134 268 136 256 136
+        C 244 136 234 134 226 130 Z
+      " />
+
+      {/* === EYES === */}
+      {/* Left eye */}
+      <ellipse cx="200" cy="100" rx="18" ry="16" />
+      <ellipse cx="204" cy="96" rx="6" ry="5" />
+
+      {/* Right eye */}
+      <ellipse cx="312" cy="100" rx="18" ry="16" />
+      <ellipse cx="316" cy="96" rx="6" ry="5" />
+
+      {/* === EYEBROW RIDGES - expressive === */}
+      <path d="M 184 82 C 192 76 206 74 218 78" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none" />
+      <path d="M 296 78 C 308 74 322 76 330 82" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="none" />
+
+      {/* === EARS - long floppy === */}
+      {/* Left ear */}
+      <path d="
+        M 150 80
+        C 138 70 118 64 102 70
+        C 86 76 80 92 84 110
+        C 88 128 102 144 118 154
+        C 130 162 146 166 156 160
+        C 166 154 168 142 162 130
+        C 158 118 150 104 148 90
+        C 148 86 150 82 150 80 Z
+      " />
+
+      {/* Right ear */}
+      <path d="
+        M 362 80
+        C 374 70 394 64 410 70
+        C 426 76 432 92 428 110
+        C 424 128 410 144 394 154
+        C 382 162 366 166 356 160
+        C 346 154 344 142 350 130
+        C 354 118 362 104 364 90
+        C 364 86 362 82 362 80 Z
+      " />
+
+      {/* === COLLAR === */}
+      <path d="
+        M 162 196
+        C 162 190 170 184 180 182
+        L 332 182
+        C 342 184 350 190 350 196
+        L 350 212
+        C 350 218 342 222 332 222
+        L 180 222
+        C 170 220 162 216 162 210 Z
+      " />
+
+      {/* Collar buckle detail */}
+      <rect x="240" y="185" width="32" height="10" rx="3" />
+      <rect x="246" y="183" width="20" height="14" rx="2" />
 
       {/* Collar tag */}
-      <circle cx="50" cy="52" r="3" />
+      <path d="M 256 222 L 248 238 C 246 244 250 250 256 250 C 262 250 266 244 264 238 Z" />
+      <circle cx="256" cy="240" r="6" />
 
-      {/* Body - torso sitting */}
-      <path d="M30 56 Q28 60 28 70 Q28 82 34 84 L66 84 Q72 82 72 70 Q72 60 70 56 L34 56 Z" />
-
-      {/* Front left leg */}
-      <rect x="32" y="72" width="10" height="22" rx="5" />
-      {/* Front right leg */}
-      <rect x="58" y="72" width="10" height="22" rx="5" />
-
-      {/* Paw left */}
-      <ellipse cx="37" cy="94" rx="6" ry="4" />
-      {/* Paw right */}
-      <ellipse cx="63" cy="94" rx="6" ry="4" />
-
-      {/* Tail - curled up */}
-      <path
-        d="M68 76 Q80 72 82 64 Q84 56 78 54 Q74 52 72 56"
-        stroke="currentColor"
-        strokeWidth="6"
-        strokeLinecap="round"
-        fill="none"
-      />
+      {/* === CHEST FUR DETAIL === */}
+      <path d="M 190 300 C 200 290 220 284 240 286 C 256 288 270 296 280 308" stroke="currentColor" strokeWidth="5" strokeLinecap="round" fill="none" />
+      <path d="M 200 316 C 212 306 230 300 250 302 C 264 304 276 312 284 324" stroke="currentColor" strokeWidth="4" strokeLinecap="round" fill="none" />
     </svg>
   );
 }

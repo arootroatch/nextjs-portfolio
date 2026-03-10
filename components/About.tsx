@@ -80,27 +80,29 @@ export default function About({
   // Desktop: absolute within sticky wrapper, driven by scrollYProgress
   if (scrollYProgress) {
     return (
-      <section className="sm:pl-5 sm:pr-9 max-w-[50rem] text-center h-full w-full leading-8 absolute top-[68%] -translate-y-1/2 left-1/2 -translate-x-1/2 px-4">
+      <section className="sm:pl-5 sm:pr-9 max-w-[50rem] text-center h-full w-full leading-8 absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 px-4 flex flex-col items-center justify-center">
         <motion.div style={{ opacity: headerOpacity }}>
           <SectionHeader>About Me</SectionHeader>
         </motion.div>
 
-        {aboutData.map((text, index) => (
-          <motion.div
-            key={index}
-            className={`flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} items-center gap-4 max-w-[42rem] mx-auto absolute top-[40%] left-1/2 -translate-x-1/2`}
-            style={{ opacity: paragraphOpacities[index] }}
-          >
-            <div className="flex-shrink-0 w-20 flex flex-col items-center gap-3">
-              {desktopIconGroups[index]}
-            </div>
-            <p className="bg-[rgba(217,199,214,0.34)] dark:bg-transparent rounded-lg">
-              <ReactMarkdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
-                {text}
-              </ReactMarkdown>
-            </p>
-          </motion.div>
-        ))}
+        <div className="relative w-full mt-4">
+          {aboutData.map((text, index) => (
+            <motion.div
+              key={index}
+              className={`flex ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} items-center gap-6 max-w-[45rem] mx-auto ${index > 0 ? "absolute inset-0" : ""}`}
+              style={{ opacity: paragraphOpacities[index] }}
+            >
+              <div className="flex-shrink-0 w-20 flex flex-col items-center gap-3">
+                {desktopIconGroups[index]}
+              </div>
+              <p className="bg-[rgba(217,199,214,0.34)] dark:bg-transparent rounded-lg text-left">
+                <ReactMarkdown rehypePlugins={[rehypeRaw]} components={markdownComponents}>
+                  {text}
+                </ReactMarkdown>
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </section>
     );
   }
