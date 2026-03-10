@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Alex Root-Roatch | Portfolio',
-  description: 'Alex Root-Roatch is a full-stack developer with 3 years of experience.',
+  description: 'Alex Root-Roatch is a full-stack software engineer who builds test-driven, maintainable systems across industries — from drone traffic management to e-commerce to online education.',
 }
 
 export default function RootLayout({
