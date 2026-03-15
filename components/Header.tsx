@@ -21,16 +21,16 @@ export default function Header() {
     if (Math.abs(delta) < 10) return;
 
     if (delta > 0 && current > 80) {
-      // Scrolling down — hide
-      animate(scope.current, { opacity: 0, pointerEvents: "none" }, { duration: 0.3 });
+      // Scrolling down — slide up and hide
+      animate(scope.current, { y: -100, pointerEvents: "none" }, { duration: 0.15, ease: "easeIn" });
     } else if (delta < 0) {
-      // Scrolling up — show
-      animate(scope.current, { opacity: 1, pointerEvents: "auto" }, { duration: 0.3 });
+      // Scrolling up — slide down and show
+      animate(scope.current, { y: 0, pointerEvents: "auto" }, { duration: 0.15, ease: "easeOut" });
     }
   });
 
   return (
-    <header ref={scope} className="z-[999] relative sm:!opacity-100 sm:!pointer-events-auto">
+    <header ref={scope} className="z-[999] relative sm:!translate-y-0 sm:!pointer-events-auto">
       <motion.div
         className="fixed top-0 left-1/2 h-[4.5rem] w-screen rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[42rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-65"
         initial={{ y: -100, x: "-50%", opacity: 0 }}
@@ -54,9 +54,14 @@ export default function Header() {
                   }
                 )}
                 href={link.hash}
-                onClick={() => {
+                onClick={(e) => {
                   setActiveSection(link.name);
                   setTimeOfLastClick(Date.now());
+                  // On mobile, Home/About anchors use different IDs
+                  if (window.innerWidth < 640 && (link.name === "Home" || link.name === "About")) {
+                    e.preventDefault();
+                    document.getElementById(`mobile${link.name}`)?.scrollIntoView({ behavior: "smooth" });
+                  }
                 }}
               >
                 {link.name}

@@ -27,8 +27,8 @@ body{
 
 @media (max-width: 639px) {
   #bg-pic {
-    background-size: cover;
-    background-position: top 30% center;
+    background-size: auto 148%;
+    background-position: top 45% center;
   }
 }
 

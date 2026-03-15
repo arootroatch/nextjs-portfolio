@@ -47,7 +47,7 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="scroll-mt-28 sm:scroll-mt-[60vh] mb-28 relative w-full"
+      className="scroll-mt-28 sm:scroll-mt-[60vh] mb-28 relative w-full overflow-x-clip"
     >
       <span ref={inViewRef} className="absolute top-0" />
 

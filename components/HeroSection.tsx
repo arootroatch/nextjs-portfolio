@@ -47,9 +47,9 @@ export default function HeroSection() {
 
       {/* Mobile: normal flow */}
       <div className="sm:hidden">
-        <span id="Home" className="scroll-mt-28" />
+        <span id="mobileHome" className="scroll-mt-28" />
         <Intro />
-        <span id="About" className="scroll-mt-28" />
+        <span id="mobileAbout" className="scroll-mt-28" />
         <About />
       </div>
     </>
