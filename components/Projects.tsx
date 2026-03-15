@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import { projectsData } from "@/lib/data";
 import Project from "./Project";
+import SectionHeader from "./SectionHeader";
 import { useSectionInView } from "@/lib/hooks";
 import { FaGithubSquare } from "react-icons/fa";
 import {
@@ -46,13 +47,13 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="scroll-mt-[60vh] mb-28 relative w-full"
+      className="scroll-mt-28 sm:scroll-mt-[60vh] mb-28 relative w-full"
     >
       <span ref={inViewRef} className="absolute top-0" />
 
       {/* Fixed header — never scrolls, just fades in/out based on section scroll */}
       <motion.div
-        className="fixed inset-0 z-0 flex items-center justify-center pointer-events-none"
+        className="hidden sm:flex fixed inset-0 z-0 items-center justify-center pointer-events-none"
         style={{ opacity: headerOpacity }}
       >
         <h2 className="text-7xl lg:text-8xl font-extrabold text-center text-gray-900/80 dark:text-white/80 flex flex-col gap-6">
@@ -63,7 +64,12 @@ export default function Projects() {
       </motion.div>
 
       {/* Spacer so header is visible before cards begin */}
-      <div className="h-[30vh]" />
+      <div className="hidden sm:block h-[30vh]" />
+
+      {/* Mobile inline header */}
+      <div className="sm:hidden">
+        <SectionHeader>My Projects</SectionHeader>
+      </div>
 
       {/* Cards */}
       <div className="flex flex-col items-center gap-4 sm:gap-8 relative z-10 w-full max-w-[56rem] mx-auto">
