@@ -49,22 +49,30 @@ export default function Contact() {
             toast.success("Email sent successfully!");
             captchaRef.current?.resetCaptcha();
         }}
-        className="mt-10 flex flex-col dark:text-black"
+        className="mt-10 flex flex-col"
       >
+        <label htmlFor="senderEmail" className="text-left text-sm font-medium text-gray-700 dark:text-white/80 mb-1">
+          Email
+        </label>
         <input
+          id="senderEmail"
           type="email"
           required
           name="senderEmail"
           maxLength={500}
-          className="h-14 px-4 rounded-lg border border-black/10 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          placeholder="Your email"
+          className="h-14 px-4 rounded-lg border border-black/10 dark:bg-white/10 dark:border-white/20 dark:text-white dark:placeholder-white/40 dark:focus:bg-white/20 transition-all dark:outline-none"
+          placeholder="jane@example.com"
         />
+        <label htmlFor="message" className="text-left text-sm font-medium text-gray-700 dark:text-white/80 mb-1 mt-3">
+          Message
+        </label>
         <textarea
+          id="message"
           name="message"
           required
           maxLength={5000}
-          className="h-52 my-3 rounded-lg  border border-black/10 p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
-          placeholder="Your message"
+          className="h-52 rounded-lg border border-black/10 p-4 dark:bg-white/10 dark:border-white/20 dark:text-white dark:placeholder-white/40 dark:focus:bg-white/20 transition-all dark:outline-none"
+          placeholder="Hi Alex, I'd love to chat about..."
         ></textarea>
         <HCaptcha
           sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}

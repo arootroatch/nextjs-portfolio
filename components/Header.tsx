@@ -17,6 +17,9 @@ export default function Header() {
     const delta = current - previous;
     lastScrollY.set(current);
 
+    // Only hide/show on mobile
+    if (window.innerWidth >= 640) return;
+
     // Ignore micro-scrolls (< 10px) to prevent flicker
     if (Math.abs(delta) < 10) return;
 
@@ -30,7 +33,7 @@ export default function Header() {
   });
 
   return (
-    <header ref={scope} className="z-[999] relative sm:!translate-y-0 sm:!pointer-events-auto">
+    <header ref={scope} className="z-[999] relative">
       <motion.div
         className="fixed top-0 left-1/2 h-[4.5rem] w-screen rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem] sm:w-[42rem] sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-65"
         initial={{ y: -100, x: "-50%", opacity: 0 }}

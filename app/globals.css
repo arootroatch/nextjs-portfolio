@@ -98,6 +98,22 @@ html.dark {
   opacity: 0.8;
 }
 
+/* Mobile: play icon animations always (no hover on touch devices) */
+@media (max-width: 639px) {
+  .group-hover-scatter {
+    animation: scatter 2s ease-in-out infinite;
+  }
+  .group-hover-spin {
+    animation: spin-in-place 6s linear infinite;
+  }
+  .group-hover-shake {
+    animation: shake 1.5s ease-in-out infinite;
+  }
+  .group-hover-pour {
+    animation: pour 2s ease-in-out infinite alternate;
+  }
+}
+
 .experience-description li{
   margin-bottom: 0.5rem;
 }
