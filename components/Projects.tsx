@@ -4,11 +4,17 @@ import { projectsData } from "@/lib/data";
 import Project from "./Project";
 import { useSectionInView } from "@/lib/hooks";
 import { FaGithubSquare } from "react-icons/fa";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 
 export default function Projects() {
   const { ref: inViewRef } = useSectionInView("Projects", 0.2);
   const sectionRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -55,12 +61,28 @@ export default function Projects() {
       </div>
 
       {/* Cards */}
-      <div className="flex flex-col items-center gap-4 relative z-10">
-        {projectsData.map((project, index) => (
-          <React.Fragment key={index}>
-            <Project {...project} />
-          </React.Fragment>
-        ))}
+      <div className="flex flex-col items-center sm:items-stretch gap-4 sm:gap-8 relative z-10 max-w-[56rem] mx-auto">
+        {projectsData.map((project, index) => {
+          const isLeft = index % 2 === 0;
+          return (
+            <motion.div
+              key={index}
+              className={`${isLeft ? "sm:self-start" : "sm:self-end"}`}
+              initial={
+                prefersReducedMotion
+                  ? undefined
+                  : { opacity: 0, x: isLeft ? -50 : 50 }
+              }
+              whileInView={
+                prefersReducedMotion ? undefined : { opacity: 1, x: 0 }
+              }
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <Project {...project} />
+            </motion.div>
+          );
+        })}
       </div>
       {githubButton}
     </section>
