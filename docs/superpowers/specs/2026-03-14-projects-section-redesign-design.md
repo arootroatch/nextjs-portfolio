@@ -10,21 +10,23 @@ Redesign the Projects section from a scroll-linked horizontal carousel to a stag
 
 The Projects section currently lives inside `HeroSection`'s sticky scroll wrapper alongside Intro and About. It will be extracted into a standalone `<section>` in normal document flow.
 
-- **HeroSection** (`components/HeroSection.tsx`): Remove Projects import and rendering. Reduce `TOTAL_SCROLL` to only cover Intro + About. Update scroll progress thresholds for active section detection (remove Projects range).
-- **Projects** (`components/Projects.tsx`): Becomes a self-contained section with its own scroll tracking. No longer receives `scrollYProgress` as a prop.
+- **HeroSection** (`components/HeroSection.tsx`): Remove Projects import and rendering. Remove the `<span id="projects" ...>` anchor target. Reduce scroll height: `TOTAL_SCROLL` becomes just `HERO_SCROLL` (4700), so spacer div height becomes `calc(4700px + 100vh)`. The active section thresholds in `useMotionValueEvent` must be recalculated — the About range now extends to the end of the progress (remove the Projects branch entirely; Projects detection moves to intersection observer).
+- **Projects** (`components/Projects.tsx`): Becomes a self-contained section with its own scroll tracking. No longer receives `scrollYProgress` as a prop. Has `id="projects"` on the section element for nav hash-link scrolling. Uses `useSectionInView("Projects", 0.2)` for active section detection on both mobile and desktop (the existing mobile path already does this).
 - **Page** (`app/page.tsx`): Renders `<HeroSection />` followed by `<Projects />` in normal document flow.
 
 ### Scroll Tracking
 
 - **Header fade**: Uses Framer Motion `useScroll` targeting the Projects section container. Maps section entry progress to header opacity (1 → ~0.05) and optional slight scale-up.
 - **Card entrances**: Each card uses Framer Motion `whileInView` with `viewport={{ once: true, amount: 0.3 }}` for triggering. No shared scroll progress needed.
+- **Nav highlighting**: Projects uses `useSectionInView` (intersection observer) for active section detection, same as the existing mobile code path. HeroSection's `useMotionValueEvent` only handles Home and About.
 
 ## Header
 
 ### Initial State (before scrolling into section)
 - Three-line layout: "Some" / "of My" / "Projects"
-- Large, bold, centered text (roughly `text-6xl` to `text-8xl`, `font-extrabold`)
-- Full opacity, positioned at center of the section
+- Large, bold, centered text (`text-7xl lg:text-8xl`, `font-extrabold`)
+- Full opacity, vertically and horizontally centered
+- The section should have a leading spacer or `min-h-screen` so the header appears centered on screen before cards begin scrolling into view
 
 ### Scrolled State (as cards scroll over it)
 - Fades to ghost opacity (~5%)
@@ -41,9 +43,10 @@ The Projects section currently lives inside `HeroSection`'s sticky scroll wrappe
 ### Desktop (sm and above)
 - Staggered offset layout in a vertical column
 - Cards retain existing design and dimensions (`w-[42rem]`, `h-[20rem]`, horizontal with image on one side)
-- Odd cards (1st, 3rd, 5th): left-aligned (`self-start`)
-- Even cards (2nd, 4th): right-aligned (`self-end`)
-- Cards at ~85% container width creates visual overlap between the two alignment positions
+- Stagger alignment is index-based, independent of `ImagePlacement` (which controls image positioning within each card):
+  - Odd cards (1st, 3rd, 5th): left-aligned (`self-start`)
+  - Even cards (2nd, 4th): right-aligned (`self-end`)
+- The container is full-width; cards are their fixed 672px width. `self-start`/`self-end` within the container creates the staggered offset and visual overlap
 - Gap between cards: `gap-8` or `gap-10`
 
 ### Mobile
