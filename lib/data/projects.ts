@@ -33,7 +33,7 @@ export const projectsData = [
   {
     title: "Gift Exchange Generator",
     description:
-      "Secret Santa for the digital age. Framework-free; I built my own state-centered, event-driven architecture. Over 70,000 gift exchange participants to date.",
+      "Secret Santa for the digital age. Framework-free; I built my own state-centered, event-driven architecture. 46,000+ organic users and over 70,000 gift exchange participants to date.",
     tags: ["JS", "MongoDB", "PostMark", "Serverless", "Vitest"],
     imageUrl: giftExchange,
     url: "https://giftexchangegenerator.netlify.app/",

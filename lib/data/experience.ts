@@ -4,34 +4,53 @@ import {LuGraduationCap} from "react-icons/lu";
 
 export const experiencesData = [
   {
-    title: "Began learning how to code",
-    location: "Nashville, TN",
+    title: "B.M. Recording Technology / B.A. Spanish",
+    location: "University of Wisconsin Oshkosh",
     description:
-      "- Earned four freeCodeCamp certificates in Responsive Web Design, JavaScript, Front End Frameworks, and Backend Development. \n" +
-      "- Built the Sound Roots Productions homepage and the first iteration of the Gift Exchange Generator, hosted on Netlify with continuous integration.",
+      "- Dual degree in Recording Technology and Spanish Language & Literature.\n" +
+      "- Studied abroad at the University of Salamanca, Spain.",
     icon: React.createElement(LuGraduationCap),
-    date: "2020",
+    date: "2017",
   },
   {
-    title: "Web Developer",
-    location: "Sound Roots Productions",
+    title: "Audio Quality Control Technician",
+    location: "VER/PRG — Nashville, TN",
     description:
-      "- Built a dynamic feedback form and job application form encompassing 4 venues across 3 cities.\n " +
-      "- Created an internal resources page using NFC tags for quick reference by personnel.\n " +
-      "- Built 3 VBA macros that automated invoice and paystub generation and email sending, saving roughly 8 hours of work per month.",
+      "- Configured redundant Dante audio-over-ethernet and fiber-optic networks, wireless access points, and production LANs for large-scale live events.\n" +
+      "- Progressed from entry-level to go-to resource for system prep and troubleshooting within the first year.",
     icon: React.createElement(CgWorkAlt),
-    date: "2020 - 2024",
+    date: "2017 - 2019",
   },
   {
-    title: "Software Craftsman",
-    location: "Clean Coders, LLC",
+    title: "Owner / Web Developer",
+    location: "Sound Roots Productions — Nashville, TN",
     description:
-      "- Built desktop and full-stack web applications in the UAS, payroll, education, and mobile commerce industries, mostly written in Clojure and ClojureScript.\n " +
-      "- Maintained internal planning and development tools.\n" +
-      "- Managed AWS EC2 and EKS infrastructure with GitHub Actions.\n " +
-      "- Integrated AI into applications and leveraged agentic orchestration in development workflows.\n" +
-      "- Built a state-management library that increased front end performance by a factor of 6.\n",
+      "- Owned and operated a live-event production company providing audio and lighting technical staff to venues and nightclubs.\n" +
+      "- Built web applications that managed job applications and feedback for 4 venues across 3 cities.\n" +
+      "- Developed 3 VBA automations for payroll and invoicing that saved ~$2,000/year in labor and software costs.",
     icon: React.createElement(CgWorkAlt),
-    date: "2024 - present",
+    date: "2019 - 2025",
+  },
+  {
+    title: "Software Apprentice",
+    location: "Clean Coders, LLC — Remote",
+    description:
+      "- Completed a rigorous apprenticeship covering SOLID principles, TDD, design patterns, clean architecture, data structures, and Agile.\n" +
+      "- Promoted to Senior Software Engineer after 6 months.",
+    icon: React.createElement(LuGraduationCap),
+    date: "May 2024 - Nov 2024",
+  },
+  {
+    title: "Senior Software Engineer",
+    location: "Clean Coders, LLC — Remote",
+    description:
+      "- Led technical delivery of Odyssey, an online education platform — served as primary client contact, extracted acceptance criteria, and drove architecture decisions.\n" +
+      "- Onboarded developers through pairing sessions and architectural walkthroughs, accelerating their time to first contribution.\n" +
+      "- Co-authored ReMemory, a state-management addition to the open-source C3kit Bucket library that increased front-end performance 6x.\n" +
+      "- Delivered a production-ready mobile commerce backend in Clojure in 3 weeks with full test coverage.\n" +
+      "- Unblocked a stalled team by authoring a 40-test e2e suite that surfaced hard-to-reproduce bugs in a local-first PWA.\n" +
+      "- Provisioned a dedicated AWS staging environment (EC2, IAM, DynamoDB, S3), isolating staging from production.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Nov 2024 - present",
   },
 ] as const;
