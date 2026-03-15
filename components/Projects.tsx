@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef } from "react";
 import SectionHeader from "./SectionHeader";
 import { projectsData } from "@/lib/data";
