@@ -21,8 +21,12 @@ export default function Projects() {
     offset: ["start end", "end start"],
   });
 
-  // Fade header from full opacity to ghost over the first 30% of section scroll
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.05]);
+  // Header fades in as section enters viewport, holds, fades to ghost as cards scroll over
+  const headerOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.05, 0.05, 0.15, 0.25, 0.7, 0.8],
+    [0, 1, 1, 1, 0.05, 0.05, 0]
+  );
 
   const githubButton = (
     <div className="flex justify-center align-middle mt-5">
@@ -42,26 +46,27 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="scroll-mt-28 mb-28 relative"
+      className="scroll-mt-[60vh] mb-28 relative w-full"
     >
       <span ref={inViewRef} className="absolute top-0" />
 
-      {/* Sticky fading header */}
-      <div className="sticky top-0 z-0 flex items-center justify-center min-h-screen pointer-events-none">
-        <motion.h2
-          style={{ opacity: headerOpacity }}
-          className="text-7xl lg:text-8xl font-extrabold text-center text-gray-900/80 dark:text-white/80 leading-tight"
-        >
-          Some
-          <br />
-          of My
-          <br />
-          Projects
-        </motion.h2>
-      </div>
+      {/* Fixed header — never scrolls, just fades in/out based on section scroll */}
+      <motion.div
+        className="fixed inset-0 z-0 flex items-center justify-center pointer-events-none"
+        style={{ opacity: headerOpacity }}
+      >
+        <h2 className="text-7xl lg:text-8xl font-extrabold text-center text-gray-900/80 dark:text-white/80 flex flex-col gap-6">
+          <span>Some</span>
+          <span>of My</span>
+          <span>Projects</span>
+        </h2>
+      </motion.div>
+
+      {/* Spacer so header is visible before cards begin */}
+      <div className="h-[30vh]" />
 
       {/* Cards */}
-      <div className="flex flex-col items-center sm:items-stretch gap-4 sm:gap-8 relative z-10 max-w-[56rem] mx-auto">
+      <div className="flex flex-col items-center gap-4 sm:gap-8 relative z-10 w-full max-w-[56rem] mx-auto">
         {projectsData.map((project, index) => {
           const isLeft = index % 2 === 0;
           return (
@@ -76,8 +81,8 @@ export default function Projects() {
               whileInView={
                 prefersReducedMotion ? undefined : { opacity: 1, x: 0 }
               }
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ amount: 0.6 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
             >
               <Project {...project} />
             </motion.div>

@@ -5,7 +5,7 @@ import { useActiveSectionContext } from "@/context/ActiveSectionContext";
 import Intro from "./Intro";
 import About from "./About";
 
-const HERO_SCROLL = 4700;
+const HERO_SCROLL = 2500;
 
 export default function HeroSection() {
   const spacerRef = useRef<HTMLDivElement>(null);
@@ -36,7 +36,7 @@ export default function HeroSection() {
       >
         {/* Anchor targets for nav hash links */}
         <span id="Home" className="absolute top-[200px] scroll-mt-96" />
-        <span id="About" className="absolute top-[1200px] scroll-mt-96" />
+        <span id="About" className="absolute top-[900px] scroll-mt-96" />
 
         {/* Sticky viewport — all scroll-driven content lives here */}
         <div className="sticky top-0 h-screen overflow-visible">

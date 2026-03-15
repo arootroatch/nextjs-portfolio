@@ -104,16 +104,17 @@ export default function About({
 }) {
   const progress = scrollYProgress ?? STATIC_ZERO;
 
+  // Thresholds rescaled from [0.04, 0.677] to [0.04, 0.93] to fill scroll range
   const headerOpacity = useTransform(
     progress,
-    [0, 0.043, 0.10, 0.65, 0.677],
+    [0, 0.04, 0.12, 0.95, 0.99],
     [0, 0, 1, 1, 0]
   );
 
-  const p1Opacity = useTransform(progress, [0.06, 0.12, 0.20, 0.22], [0, 1, 1, 0]);
-  const p2Opacity = useTransform(progress, [0.22, 0.28, 0.36, 0.38], [0, 1, 1, 0]);
-  const p3Opacity = useTransform(progress, [0.38, 0.44, 0.52, 0.54], [0, 1, 1, 0]);
-  const p4Opacity = useTransform(progress, [0.54, 0.60, 0.65, 0.677], [0, 1, 1, 0]);
+  const p1Opacity = useTransform(progress, [0.07, 0.15, 0.26, 0.29], [0, 1, 1, 0]);
+  const p2Opacity = useTransform(progress, [0.29, 0.38, 0.49, 0.52], [0, 1, 1, 0]);
+  const p3Opacity = useTransform(progress, [0.52, 0.60, 0.71, 0.74], [0, 1, 1, 0]);
+  const p4Opacity = useTransform(progress, [0.74, 0.82, 0.95, 0.99], [0, 1, 1, 0]);
 
   const paragraphOpacities = [p1Opacity, p2Opacity, p3Opacity, p4Opacity];
 
@@ -122,15 +123,15 @@ export default function About({
   );
 
   // Bottom accent animations
-  const p1BottomY = useTransform(progress, [0.06, 0.12, 0.20, 0.22], [100, 0, 0, 100]);
-  const p3AudienceY = useTransform(progress, [0.38, 0.44, 0.52, 0.54], [100, 0, 0, 100]);
-  const p4BottomY = useTransform(progress, [0.54, 0.60, 0.65, 0.677], [100, 0, 0, 100]);
+  const p1BottomY = useTransform(progress, [0.07, 0.15, 0.26, 0.29], [100, 0, 0, 100]);
+  const p3AudienceY = useTransform(progress, [0.52, 0.60, 0.71, 0.74], [100, 0, 0, 100]);
+  const p4BottomY = useTransform(progress, [0.74, 0.82, 0.95, 0.99], [100, 0, 0, 100]);
 
   // Side icon slide animations
-  const p2LeftX = useTransform(progress, [0.22, 0.28, 0.36, 0.38], [-200, 0, 0, -200]);
-  const p2RightX = useTransform(progress, [0.22, 0.28, 0.36, 0.38], [200, 0, 0, 200]);
-  const p3LeftX = useTransform(progress, [0.38, 0.44, 0.52, 0.54], [-200, 0, 0, -200]);
-  const p3RightX = useTransform(progress, [0.38, 0.44, 0.52, 0.54], [200, 0, 0, 200]);
+  const p2LeftX = useTransform(progress, [0.29, 0.38, 0.49, 0.52], [-200, 0, 0, -200]);
+  const p2RightX = useTransform(progress, [0.29, 0.38, 0.49, 0.52], [200, 0, 0, 200]);
+  const p3LeftX = useTransform(progress, [0.52, 0.60, 0.71, 0.74], [-200, 0, 0, -200]);
+  const p3RightX = useTransform(progress, [0.52, 0.60, 0.71, 0.74], [200, 0, 0, 200]);
 
   // Desktop: scroll-driven animations
   if (scrollYProgress) {
