@@ -2,6 +2,7 @@ import httpServer from "@/public/httpServer.png";
 import giftExchange from "@/public/GiftExchange.png";
 import soundRoots from "@/public/Sound Roots Shorter.gif";
 import ticTacToe from "@/public/ticTacToe.png";
+import odysseyScreenshot from "@/public/odyssey-screenshot.png";
 
 export enum ImagePlacement {
   Right = "right",
@@ -10,12 +11,23 @@ export enum ImagePlacement {
 
 export const projectsData = [
   {
+    title: "Clean Coders' Odyssey",
+    description: "An interactive online learning platform for developers with integrated CLI test-runner and real-time chat. I was project lead and also created video content.",
+    tags: ["Clojure", "WebSockets", "TDD", "Datomic"],
+    imageUrl: odysseyScreenshot,
+    url: undefined,
+    githubUrl: undefined,
+    videoUrl: "/prelude-welcome-video.mp4",
+    imagePlacement: ImagePlacement.Right,
+  },
+  {
     title: "Full Stack Tic-Tac-Toe",
     description: "Postgres or EDN database? Terminal, desktop, or web? Easy, medium, or hard? 3x3, 4x4, or 3x3x3? It's the most fully-architected Tic-Tac-Toe you've ever seen.",
     tags: ["Clojure", "Speclj", "TDD", "SQL"],
     imageUrl: ticTacToe,
     url: "https://tic-tac-toe-clojure.vercel.app/",
     githubUrl: "https://github.com/arootroatch/tic-tac-toe-clojure",
+    videoUrl: undefined,
     imagePlacement: ImagePlacement.Right,
   },
   {
@@ -26,6 +38,7 @@ export const projectsData = [
     imageUrl: giftExchange,
     url: "https://giftexchangegenerator.netlify.app/",
     githubUrl: "https://github.com/arootroatch/ChristmasGiftExchange",
+    videoUrl: undefined,
     imagePlacement: ImagePlacement.Right,
   },
   {
@@ -36,6 +49,7 @@ export const projectsData = [
     imageUrl: httpServer,
     url: undefined,
     githubUrl: "https://github.com/arootroatch/http-server-java",
+    videoUrl: undefined,
     imagePlacement: ImagePlacement.Right,
   },
   {
@@ -46,6 +60,7 @@ export const projectsData = [
     imageUrl: soundRoots,
     url: "https://www.soundrootsproductions.com/",
     githubUrl: undefined,
+    videoUrl: undefined,
     imagePlacement: ImagePlacement.Left,
   },
 ] as const;
