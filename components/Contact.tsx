@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import SectionHeader from "./SectionHeader";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "./SubmitBtn";
@@ -12,15 +12,16 @@ export default function Contact() {
   const [token, setToken] = useState<string>("");
   const captchaRef = useRef<HCaptcha>(null);
   const { ref } = useSectionInView("Contact");
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 3900, 4200], [0, 0, 1]);
 
   return (
     <motion.section
       ref={ref}
       id="contact"
       className="mb-20 z-20 sm:mb-28 w-[min(100%, 38rem)] text-center scroll-mt-28"
-      style={{ opacity }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
       <SectionHeader>Contact Me</SectionHeader>
       <p className="text-gray-700 -mt-6 dark:text-white/80">
