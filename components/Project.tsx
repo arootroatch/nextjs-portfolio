@@ -7,6 +7,11 @@ import { createPortal } from "react-dom";
 
 type ProjectProps = (typeof projectsData)[number];
 
+function getYouTubeEmbedUrl(url: string): string | null {
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([^&?/]+)/);
+  return match ? `https://www.youtube.com/embed/${match[1]}?autoplay=1` : null;
+}
+
 function VideoModal({
   videoUrl,
   hidden,
@@ -20,6 +25,7 @@ function VideoModal({
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const youtubeEmbedUrl = getYouTubeEmbedUrl(videoUrl);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -71,13 +77,22 @@ function VideoModal({
         >
           ✕
         </button>
-        <video
-          ref={videoRef}
-          src={videoUrl}
-          controls
-          autoPlay
-          className="w-full h-full rounded-lg"
-        />
+        {youtubeEmbedUrl ? (
+          <iframe
+            src={youtubeEmbedUrl}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            className="w-full h-full rounded-lg"
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            src={videoUrl}
+            controls
+            autoPlay
+            className="w-full h-full rounded-lg"
+          />
+        )}
       </div>
     </div>
   );

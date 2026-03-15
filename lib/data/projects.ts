@@ -17,7 +17,7 @@ export const projectsData = [
     imageUrl: odysseyScreenshot,
     url: undefined,
     githubUrl: undefined,
-    videoUrl: "/prelude-welcome-video.mp4",
+    videoUrl: "https://youtu.be/fFAGSLOcbxk",
     imagePlacement: ImagePlacement.Right,
   },
   {
