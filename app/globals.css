@@ -22,9 +22,16 @@ body{
   background-image: url("/lookright.jpg");
   background-size: auto 150%;
   background-position: top 45% center;
-  
+
 }
-    
+
+@media (max-width: 639px) {
+  #bg-pic {
+    background-size: cover;
+    background-position: top 30% center;
+  }
+}
+
 html.dark {
   --line-color: #ffffff30;
 }
